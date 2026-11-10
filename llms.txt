@@ -1,0 +1,17 @@
+# Testify API Reference
+
+## Guide
+
+- [Testify API Reference](https://testify-docs.github.io/docs/index.md): A complete, navigable API reference for stretchr/testify — the most widely used assertion toolkit for Go — generated from source with Sourcey and pinned to an exact upstream commit so the text on this site cannot drift away from the code it describes.
+- [Provenance](https://testify-docs.github.io/docs/provenance.md): Every fact needed to reproduce this site byte-for-byte, recorded at generation time.
+- [Coverage & gaps](https://testify-docs.github.io/docs/gaps.md): What this reference covers, and — more usefully — what a maintainer would still have to fix in the source for the documentation to be complete. Counts are computed from the pinned godoc snapshot, not estimated.
+
+## API Reference
+
+- [github.com/stretchr/testify](https://testify-docs.github.io/reference/package-root.md): Module testify is a set of packages that provide many tools for testifying that your code will behave as you intend.
+- [assert](https://testify-docs.github.io/reference/pkg-assert.md): Package assert provides a set of comprehensive testing tools for use with the normal Go testing system.
+- [http](https://testify-docs.github.io/reference/pkg-http.md): Deprecated: Use net/http/httptest instead.
+- [mock](https://testify-docs.github.io/reference/pkg-mock.md): Package mock provides a system by which it is possible to mock your objects and verify calls are happening as expected.
+- [require](https://testify-docs.github.io/reference/pkg-require.md): Package require implements the same assertions as the assert package but stops test execution when a test fails.
+- [suite](https://testify-docs.github.io/reference/pkg-suite.md): Package suite contains logic for creating testing suite structs and running the methods on those structs as tests.
+- [API Reference](https://testify-docs.github.io/reference.md): Go API for github.com/stretchr/testify across 6 packages.

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://testify-docs.github.io/docs/</loc></url>
+  <url><loc>https://testify-docs.github.io/docs/provenance.html</loc></url>
+  <url><loc>https://testify-docs.github.io/docs/gaps.html</loc></url>
+  <url><loc>https://testify-docs.github.io/reference/package-root.html</loc></url>
+  <url><loc>https://testify-docs.github.io/reference/pkg-assert.html</loc></url>
+  <url><loc>https://testify-docs.github.io/reference/pkg-http.html</loc></url>
+  <url><loc>https://testify-docs.github.io/reference/pkg-mock.html</loc></url>
+  <url><loc>https://testify-docs.github.io/reference/pkg-require.html</loc></url>
+  <url><loc>https://testify-docs.github.io/reference/pkg-suite.html</loc></url>
+  <url><loc>https://testify-docs.github.io/reference.html</loc></url>
+</urlset>

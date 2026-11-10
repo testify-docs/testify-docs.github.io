@@ -1,0 +1,84 @@
+{
+  "/docs/index.md": {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Link": "<https://testify-docs.github.io/docs/>; rel=\"canonical\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\""
+  },
+  "/docs/provenance.md": {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Link": "<https://testify-docs.github.io/docs/provenance.html>; rel=\"canonical\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\""
+  },
+  "/docs/gaps.md": {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Link": "<https://testify-docs.github.io/docs/gaps.html>; rel=\"canonical\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\""
+  },
+  "/reference/package-root.md": {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Link": "<https://testify-docs.github.io/reference/package-root.html>; rel=\"canonical\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\""
+  },
+  "/reference/pkg-assert.md": {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Link": "<https://testify-docs.github.io/reference/pkg-assert.html>; rel=\"canonical\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\""
+  },
+  "/reference/pkg-http.md": {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Link": "<https://testify-docs.github.io/reference/pkg-http.html>; rel=\"canonical\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\""
+  },
+  "/reference/pkg-mock.md": {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Link": "<https://testify-docs.github.io/reference/pkg-mock.html>; rel=\"canonical\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\""
+  },
+  "/reference/pkg-require.md": {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Link": "<https://testify-docs.github.io/reference/pkg-require.html>; rel=\"canonical\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\""
+  },
+  "/reference/pkg-suite.md": {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Link": "<https://testify-docs.github.io/reference/pkg-suite.html>; rel=\"canonical\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\""
+  },
+  "/reference.md": {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Link": "<https://testify-docs.github.io/reference.html>; rel=\"canonical\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\""
+  },
+  "/documents.json": {
+    "Content-Type": "application/json; charset=utf-8"
+  },
+  "/llms.txt": {
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "/llms-full.txt": {
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "/docs/": {
+    "Link": "<https://testify-docs.github.io/docs/index.md>; rel=\"alternate\"; type=\"text/markdown\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\"; type=\"text/plain\""
+  },
+  "/docs/provenance.html": {
+    "Link": "<https://testify-docs.github.io/docs/provenance.md>; rel=\"alternate\"; type=\"text/markdown\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\"; type=\"text/plain\""
+  },
+  "/docs/gaps.html": {
+    "Link": "<https://testify-docs.github.io/docs/gaps.md>; rel=\"alternate\"; type=\"text/markdown\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\"; type=\"text/plain\""
+  },
+  "/reference/package-root.html": {
+    "Link": "<https://testify-docs.github.io/reference/package-root.md>; rel=\"alternate\"; type=\"text/markdown\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\"; type=\"text/plain\""
+  },
+  "/reference/pkg-assert.html": {
+    "Link": "<https://testify-docs.github.io/reference/pkg-assert.md>; rel=\"alternate\"; type=\"text/markdown\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\"; type=\"text/plain\""
+  },
+  "/reference/pkg-http.html": {
+    "Link": "<https://testify-docs.github.io/reference/pkg-http.md>; rel=\"alternate\"; type=\"text/markdown\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\"; type=\"text/plain\""
+  },
+  "/reference/pkg-mock.html": {
+    "Link": "<https://testify-docs.github.io/reference/pkg-mock.md>; rel=\"alternate\"; type=\"text/markdown\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\"; type=\"text/plain\""
+  },
+  "/reference/pkg-require.html": {
+    "Link": "<https://testify-docs.github.io/reference/pkg-require.md>; rel=\"alternate\"; type=\"text/markdown\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\"; type=\"text/plain\""
+  },
+  "/reference/pkg-suite.html": {
+    "Link": "<https://testify-docs.github.io/reference/pkg-suite.md>; rel=\"alternate\"; type=\"text/markdown\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\"; type=\"text/plain\""
+  },
+  "/reference.html": {
+    "Link": "<https://testify-docs.github.io/reference.md>; rel=\"alternate\"; type=\"text/markdown\", <https://testify-docs.github.io/llms.txt>; rel=\"describedby\"; type=\"text/plain\""
+  },
+  "/404.html": {
+    "Link": "<https://testify-docs.github.io/llms.txt>; rel=\"describedby\"; type=\"text/plain\""
+  }
+}

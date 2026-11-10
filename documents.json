@@ -1,0 +1,3857 @@
+{
+  "version": 1,
+  "name": "Testify API Reference",
+  "documents": [
+    {
+      "id": "docs/index.md",
+      "kind": "page",
+      "title": "Testify API Reference",
+      "description": "A complete, navigable API reference for stretchr/testify — the most widely used assertion toolkit for Go — generated from source with Sourcey and pinned to an exact upstream commit so the text on this site cannot drift away from the code it describes.",
+      "tab": "",
+      "url": "https://testify-docs.github.io/docs/",
+      "markdown": "https://testify-docs.github.io/docs/index.md",
+      "file": "docs/index.md",
+      "searchText": "# testify api reference {#testify-api-reference} a complete, navigable for **[stretchr/testify](https://github.com/stretchr/testify)** — the most widely used assertion toolkit go generated from source with [sourcey](https://sourcey.com) and pinned to an exact upstream commit so text on this site cannot drift away code it describes. - **upstream repository:** https://github.com/stretchr/testify **pinned commit:** `87a7b9d57689f6579db2da795ab8deeab29cb724` (2026-09-24) **license:** mit (see `license` file in tree) **generator:** sourcey 3.9.5, `godoc` adapter snapshot mode **coverage:** 6 public packages, **709 documented apis** (functions, types, methods) ## packages {#packages} | package what does apis --- `assert` assertions that return `bool` log failures without stopping test 158 functions, 11 157 methods `require` same assertions, but they call `t.failnow()` failure 153 152 `mock` mock objects: expectations, recording, argument matchers 7 32 `suite` suites setup/teardown lifecycle hooks 1 function, 13 `http` small http helpers (test round-tripper friends) 2 4 `testify` (root) landing page only no exported 0 why exists {#why-this-site-exists} testify's canonical documentation is its readme plus `pkg.go.dev`. tutorial, not reference: shows popular leaves long tail format-string variants, `assert`/`require` generation relationship, matchers, suite interfaces be discovered source. renders whole surface itself, navigation, search, per-symbol pages, reader can answer \"does have x, exactly return?\" cloning repository. see **provenance** how was produced reproduce it, **coverage & gaps** maintainer would still need fix comments themselves.",
+      "documentId": "docs/index",
+      "locale": "en",
+      "contentLocale": "en",
+      "contentVersion": "current",
+      "versionScope": "site",
+      "alternates": [
+        {
+          "locale": "en",
+          "contentVersion": "current",
+          "url": "https://testify-docs.github.io/docs/",
+          "markdown": "https://testify-docs.github.io/docs/index.md"
+        }
+      ]
+    },
+    {
+      "id": "docs/provenance.md",
+      "kind": "page",
+      "title": "Provenance",
+      "description": "Every fact needed to reproduce this site byte-for-byte, recorded at generation time.",
+      "tab": "",
+      "url": "https://testify-docs.github.io/docs/provenance.html",
+      "markdown": "https://testify-docs.github.io/docs/provenance.md",
+      "file": "docs/provenance.md",
+      "searchText": "# provenance {#provenance} every fact needed to reproduce this site byte-for-byte, recorded at generation time. ## source {#source} | field value --- repository https://github.com/stretchr/testify commit `87a7b9d57689f6579db2da795ab8deeab29cb724` date 2026-09-24 license mit (`license` in the tree, copyright (c) 2012-2020 mat ryer, tyler bunnell and contributors) module `github.com/stretchr/testify` is pinned rather than tracking `master`: tree was fetched that exact sha, so text on cannot change under reader's feet. generator {#generator} tool version sourcey `3.9.5` (npm package `sourcey`) adapter `godoc` (snapshot mode) node.js `v24.22.1` go toolchain `go1.27.3` (used only produce snapshot) commands {#exact-commands} obtained from public npm registry: ```bash install sourcey@3.9.5 -g @runxhq/cli runx-cli 0.11.1, governs build run ``` godoc snapshot taken tree: --module ./target --packages ./... --out godoc.json sourcey: wrote for github.com/stretchr/testify packages: 10 published (`godoc.json`) then filtered six packages before building. removed, with reasons: - `github.com/stretchr/testify/internal/difflib`, `github.com/stretchr/testify/internal/spew` — vendored forks `internal/`; not importable api. `github.com/stretchr/testify/assert/internal/unsafetests` internal test helper. `github.com/stretchr/testify/assert/yaml` yaml fork used by `assert`; api surface. built snapshot: -c sourcey.config.ts -o dist governed {#governed-run} were executed as a [runx](https://runx.ai) skill work carries sealed, recomputable receipt. delivery packet publication records run's `receipt_ref`, `runx --version` output (`runx-cli 0.11.1`), full observation log.",
+      "documentId": "docs/provenance",
+      "locale": "en",
+      "contentLocale": "en",
+      "contentVersion": "current",
+      "versionScope": "site",
+      "alternates": [
+        {
+          "locale": "en",
+          "contentVersion": "current",
+          "url": "https://testify-docs.github.io/docs/provenance.html",
+          "markdown": "https://testify-docs.github.io/docs/provenance.md"
+        }
+      ]
+    },
+    {
+      "id": "docs/gaps.md",
+      "kind": "page",
+      "title": "Coverage & gaps",
+      "description": "What this reference covers, and — more usefully — what a maintainer would still have to fix in the source for the documentation to be complete. Counts are computed from the pinned godoc snapshot, not estimated.",
+      "tab": "",
+      "url": "https://testify-docs.github.io/docs/gaps.html",
+      "markdown": "https://testify-docs.github.io/docs/gaps.md",
+      "file": "docs/gaps.md",
+      "searchText": "# coverage & gaps {#coverage--gaps} what this reference covers, and — more usefully a maintainer would still have to fix in the source for documentation be complete. counts are computed from pinned godoc snapshot, not estimated. ## {#coverage} - **709 public apis documented**: 318 package-level functions, 39 types, 352 methods across `assert`, `require`, `mock`, `suite`, `http`. every exported function type packages carries doc comment (0 undocumented 0 types snapshot) testify's discipline at declaration level is genuinely good. `assert` → `require` relationship fully visible: both documented side by side, so reader can see that mirrors (153 vs 158 functions) with `failnow` semantics. care about {#gaps-a-maintainer-would-care-about} 1. **the root package documents nothing.** `github.com/stretchr/testify` itself exports no api its page stub; landing there gets map of sub-packages. site compensates overview table on home page, but belongs `doc.go` upstream. 2. **generated code marked as generated.** produced generator `_codegen`, neither package's comments say so. comparing near-identical entries cannot tell which truth, contributor may patch generated side. one sentence each it. 3. **suite lifecycle hooks conventions, contracts.** `suite` 13 only 1 function; actual programming model `setupsuite`, `teardowntest`, friends set optional interfaces suite struct implement, described readme's prose rather than themselves. makes findable; it invent missing documentation. 4. **examples do survive into reference.** ship extensive `example…` functions their test files, they attached symbols demonstrate like godoc-derived shows signatures without runnable usage most 709 entries. wiring examples single highest-value improvement available 5. `http` nearly invisible.** two four methods, guidance when use over `net/http/httptest`. here completeness; upstream reads an afterthought probably should either grow real or explicitly deprecated favour standard library. 6. **failure-output behaviour inconsistently.** some document exactly printed failure (including `msgandargs` convention); others identical mechanics nothing. because inherits same generation, inconsistency appears twice.",
+      "documentId": "docs/gaps",
+      "locale": "en",
+      "contentLocale": "en",
+      "contentVersion": "current",
+      "versionScope": "site",
+      "alternates": [
+        {
+          "locale": "en",
+          "contentVersion": "current",
+          "url": "https://testify-docs.github.io/docs/gaps.html",
+          "markdown": "https://testify-docs.github.io/docs/gaps.md"
+        }
+      ]
+    },
+    {
+      "id": "reference/package-root.md",
+      "kind": "page",
+      "title": "github.com/stretchr/testify",
+      "description": "Module testify is a set of packages that provide many tools for testifying that your code will behave as you intend.",
+      "tab": "reference",
+      "url": "https://testify-docs.github.io/reference/package-root.html",
+      "markdown": "https://testify-docs.github.io/reference/package-root.md",
+      "file": "reference/package-root.md",
+      "searchText": "module testify is a set of packages that provide many tools for testifying your code will behave as you intend. contains the following packages: [github.com/stretchr/testify/assert](https://pkg.go.dev/github.com/stretchr/testify/assert) package provides comprehensive assertion functions tie in to [the go testing system](https://go.dev/doc/code#testing). [github.com/stretchr/testify/require](https://pkg.go.dev/github.com/stretchr/testify/require) same assertions but fatal checks. [github.com/stretchr/testify/mock](https://pkg.go.dev/github.com/stretchr/testify/mock) system by which it possible mock objects and verify calls are happening expected. [github.com/stretchr/testify/suite](https://pkg.go.dev/github.com/stretchr/testify/suite) basic structure using structs suites, methods on those tests. includes setup/teardown functionality way interfaces. [golangci-lint](https://golangci-lint.run/) compatible linter available called [testifylint](https://github.com/antonboom/testifylint).",
+      "symbols": [],
+      "documentId": "package-root",
+      "locale": "en",
+      "contentLocale": "en",
+      "contentVersion": "current",
+      "versionScope": "site",
+      "alternates": [
+        {
+          "locale": "en",
+          "contentVersion": "current",
+          "url": "https://testify-docs.github.io/reference/package-root.html",
+          "markdown": "https://testify-docs.github.io/reference/package-root.md"
+        }
+      ]
+    },
+    {
+      "id": "reference/pkg-assert.md",
+      "kind": "page",
+      "title": "assert",
+      "description": "Package assert provides a set of comprehensive testing tools for use with the normal Go testing system.",
+      "tab": "reference",
+      "url": "https://testify-docs.github.io/reference/pkg-assert.html",
+      "markdown": "https://testify-docs.github.io/reference/pkg-assert.md",
+      "file": "reference/pkg-assert.md",
+      "searchText": "package assert provides a set of comprehensive testing tools for use with the normal go system. ### note all functions in this return bool value indicating whether assertion has passed. example usage following is complete using standard test function: import ( \"testing\" \"github.com/stretchr/testify/assert\" ) func testsomething(t *testing.t) { var string = \"hello\" b assert.equal(t, a, b, \"the two words should be same.\") } if you many times, format below: := assert.new(t) assert.equal(a, assertions allow to easily write code, and are global funcs package. take, as first argument, [\\*testing.t](https://pkg.go.dev/testing#t) object provided by framework. allows failings other details correct place. every function also takes an optional message final allowing custom error messages appended method outputs. ## anerror ```go errors.new(\"assert.anerror general testing\") ``` instance useful testing. code does not care about specifics, only needs example, used make more readable. callerinfo callerinfo() []string returns array strings containing file line number each stack frame leading from current call that failed. condition condition(t testingt, comp comparison, msgandargs ...interface{}) uses comparison complex condition. conditionf conditionf(t msg string, args contains contains(t s, interface{}, asserts specified list(array, slice...) or map substring element. assert.contains(t, \"hello world\", \"world\") [\"hello\", \"world\"], {\"hello\": \"world\"}, \"hello\") containsf containsf(t s assert.containsf(t, \"world\", \"error %s\", \"formatted\") \"hello\", direxists direxists(t path checks directory exists given path. it fails rather there checking exists. direxistsf direxistsf(t elementsmatch elementsmatch(t lista, listb (ok bool) lista(array, equal listb(array, ignoring order elements. duplicate elements, appearances them both lists match. assert.elementsmatch(t, \\[1, 3, 2, 3], 2]) elementsmatchf elementsmatchf(t lista assert.elementsmatchf(t, 2], empty empty(t \"empty\". [zero values](https://go.dev/ref/spec#the_zero_value) arrays \"empty\" element zero type (stricter than \"empty\"). slices, maps channels length pointer values nil pointed assert.empty(t, obj) emptyf emptyf(t assert.emptyf(t, obj, equal(t expected, actual objects equal. 123, 123) variable equality determined based on referenced (as opposed memory addresses). cannot will always fail. equalerror equalerror(t theerror error, errstring returned non-nil (i.e. error) error. actualobj, err somefunction() assert.equalerror(t, err, expectederrorstring) equalerrorf equalerrorf(t assert.equalerrorf(t, expectederrorstring, equalexportedvalues equalexportedvalues(t types their public fields comparing structs have private could potentially differ. struct exported int notexported assert.equalexportedvalues(t, s{1, 2}, 3}) => true s{2, false equalexportedvaluesf equalexportedvaluesf(t expected assert.equalexportedvaluesf(t, 3}, equalvalues equalvalues(t convertible larger assert.equalvalues(t, uint32(123), int32(123)) equalvaluesf equalvaluesf(t assert.equalvaluesf(t, int32(123), equalf equalf(t assert.equalf(t, error(t (ie. error). assert.error(t, err) erroras erroras(t target at least one errors err's chain matches target, so, sets value. wrapper errors.as. errorasf errorasf(t errorcontains errorcontains(t substring. assert.errorcontains(t, expectederrorsubstring) errorcontainsf errorcontainsf(t assert.errorcontainsf(t, expectederrorsubstring, erroris erroris(t target. errors.is. errorisf errorisf(t errorf errorf(t assert.errorf(t, eventually eventually(t func() bool, waitfor time.duration, tick met time, periodically tick. assert.eventually(t, true; }, time.second, 10*time.millisecond) eventuallywitht eventuallywitht(t func(collect *collectt), contrast eventually, supplies collectt function, so can assertions. considered \"met\" no raised supplied collects (if any). before waitfor, collected last copied t. externalvalue time.sleep(8*time.second) }() assert.eventuallywitht(t, func(c *assert.collectt) // add needed; any failure fail assert.true(c, externalvalue, \"expected 'externalvalue' true\") 10*time.second, 1*time.second, \"external state changed 'true'; still false\") eventuallywithtf eventuallywithtf(t assert.eventuallywithtf(t, eventuallyf eventuallyf(t assert.eventuallyf(t, 10*time.millisecond, exactly exactly(t type. assert.exactly(t, int64(123)) exactlyf exactlyf(t assert.exactlyf(t, int64(123), fail(t failuremessage reports through failnow failnow(t failnowf failnowf(t failf failf(t false(t false. assert.false(t, mybool) falsef falsef(t assert.falsef(t, mybool, fileexists fileexists(t points when trying check file. fileexistsf fileexistsf(t greater greater(t e1 e2 second assert.greater(t, 1) float64(2), float64(1)) \"b\", \"a\") greaterorequal greaterorequal(t assert.greaterorequal(t, 2) \"b\") greaterorequalf greaterorequalf(t assert.greaterorequalf(t, 1, \"a\", greaterf greaterf(t assert.greaterf(t, float64(1), httpbody httpbody(handler http.handlerfunc, method, url url.values) helper http body response. building new request fails. httpbodycontains httpbodycontains(t handler url.values, str string. assert.httpbodycontains(t, myhandler, \"get\", \"www.google.com\", nil, \"i'm feeling lucky\") was successful (true) (false). httpbodycontainsf httpbodycontainsf(t assert.httpbodycontainsf(t, lucky\", httpbodynotcontains httpbodynotcontains(t contain assert.httpbodynotcontains(t, httpbodynotcontainsf httpbodynotcontainsf(t assert.httpbodynotcontainsf(t, httperror httperror(t status code. assert.httperror(t, \"post\", \"/a/b/c\", url.values{\"a\": []string{\"b\", \"c\"}} httperrorf httperrorf(t assert.httperrorf(t, httpredirect httpredirect(t redirect assert.httpredirect(t, httpredirectf httpredirectf(t assert.httpredirectf(t, httpstatuscode httpstatuscode(t statuscode int, assert.httpstatuscode(t, \"/notimplemented\", 501) httpstatuscodef httpstatuscodef(t assert.httpstatuscodef(t, 501, httpsuccess httpsuccess(t success assert.httpsuccess(t, \"http://www.google.com\", nil) httpsuccessf httpsuccessf(t assert.httpsuccessf(t, implements implements(t interfaceobject implemented interface. assert.implements(t, (*myinterface)(nil), new(myobject)) implementsf implementsf(t assert.implementsf(t, new(myobject), indelta indelta(t delta float64, numerals within other. assert.indelta(t, math.pi, 22/7.0, 0.01) indeltamapvalues indeltamapvalues(t same indelta, but compares between maps. must keys. indeltamapvaluesf indeltamapvaluesf(t indeltaslice indeltaslice(t except slices. indeltaslicef indeltaslicef(t indeltaf indeltaf(t assert.indeltaf(t, 0.01, inepsilon inepsilon(t epsilon relative less inepsilonslice inepsilonslice(t inepsilon, inepsilonslicef inepsilonslicef(t inepsilonf inepsilonf(t isdecreasing isdecreasing(t collection decreasing assert.isdecreasing(t, []int{2, 0}) []float{2, 1}) \"a\"}) isdecreasingf isdecreasingf(t assert.isdecreasingf(t, 0}, 1}, \"a\"}, isincreasing isincreasing(t increasing assert.isincreasing(t, []int{1, []float{1, 2}) []string{\"a\", \"b\"}) isincreasingf isincreasingf(t assert.isincreasingf(t, \"b\"}, isnondecreasing isnondecreasing(t assert.isnondecreasing(t, isnondecreasingf isnondecreasingf(t assert.isnondecreasingf(t, isnonincreasing isnonincreasing(t assert.isnonincreasing(t, isnonincreasingf isnonincreasingf(t assert.isnonincreasingf(t, isnottype isnottype(t thetype, assert.isnottype(t, &notmystruct{}, &mystruct{}) isnottypef isnottypef(t thetype assert.isnottypef(t, &mystruct{}, istype istype(t expectedtype, assert.istype(t, istypef istypef(t expectedtype assert.istypef(t, jsoneq jsoneq(t json equivalent. assert.jsoneq(t, `{\"hello\": \"foo\": \"bar\"}`, `{\"foo\": \"bar\", \"hello\": \"world\"}`) jsoneqf jsoneqf(t assert.jsoneqf(t, \"world\"}`, len len(t specific length. len() accept. assert.len(t, myslice, 3) lenf lenf(t assert.lenf(t, less(t assert.less(t, float64(2)) lessorequal lessorequal(t assert.lessorequal(t, lessorequalf lessorequalf(t assert.lessorequalf(t, lessf lessf(t assert.lessf(t, negative negative(t e assert.negative(t, -1) -1.23) negativef negativef(t assert.negativef(t, -1, -1.23, never never(t doesn't satisfy assert.never(t, false; neverf neverf(t assert.neverf(t, new(t testingt) *assertions makes testingt. nil(t nil. assert.nil(t, nilf nilf(t assert.nilf(t, nodirexists nodirexists(t exist existing \\_directory\\_ only. nodirexistsf nodirexistsf(t noerror noerror(t assert.noerror(t, expectedobj, actualobj) noerrorf noerrorf(t assert.noerrorf(t, nofileexists nofileexists(t \\_file\\_ nofileexistsf nofileexistsf(t notcontains notcontains(t assert.notcontains(t, \"earth\") notcontainsf notcontainsf(t assert.notcontainsf(t, \"earth\", notelementsmatch notelementsmatch(t inverse elementsmatch. assert.notelementsmatch(t, 3]) -> 4]) notelementsmatchf notelementsmatchf(t assert.notelementsmatchf(t, 4], notempty notempty(t [empty](#func-empty). assert.notempty(t, \"two\", obj[1]) notemptyf notemptyf(t assert.notemptyf(t, notequal notequal(t assert.notequal(t, obj1, obj2) notequalvalues notequalvalues(t even converted assert.notequalvalues(t, notequalvaluesf notequalvaluesf(t assert.notequalvaluesf(t, obj2, notequalf notequalf(t assert.notequalf(t, noterroras noterroras(t none noterrorasf noterrorasf(t noterroris noterroris(t noterrorisf noterrorisf(t notimplements notimplements(t implement assert.notimplements(t, notimplementsf notimplementsf(t assert.notimplementsf(t, notnil notnil(t assert.notnil(t, notnilf notnilf(t assert.notnilf(t, notpanics notpanics(t f panictestfunc, inside panictestfunc panic. assert.notpanics(t, func(){ remaincalm() }) notpanicsf notpanicsf(t assert.notpanicsf(t, notregexp notregexp(t rx regexp match assert.notregexp(t, regexp.mustcompile(\"starts\"), \"it's starting\") \"^start\", notregexpf notregexpf(t assert.notregexpf(t, starting\", notsame notsame(t pointers do reference object. assert.notsame(t, ptr1, ptr2) arguments variables. sameness notsamef notsamef(t assert.notsamef(t, ptr2, notsubset notsubset(t list, subset list (array, slice, map) elements map). key-value pairs unless compared slice where key evaluated. assert.notsubset(t, [1, {\"x\": \"y\": {\"z\": {1: \"one\", 2: \"two\"}) [\"z\"]) notsubsetf notsubsetf(t assert.notsubsetf(t, \"two\"}, [\"z\"], notzero notzero(t i its notzerof notzerof(t objectsareequal objectsareequal(expected, interface{}) determines kind. objectsareequalvalues objectsareequalvalues(expected, gets equal, objectsexportedfieldsareequal objectsexportedfieldsareequal(expected, (public) applied recursively nested data structures. deprecated: [equalexportedvalues](#func-equalexportedvalues) instead. panics panics(t panics. assert.panics(t, gocrazy() panicswitherror panicswitherror(t panics, recovered panic satisfies comparison. assert.panicswitherror(t, \"crazy error\", panicswitherrorf panicswitherrorf(t assert.panicswitherrorf(t, panicswithvalue panicswithvalue(t equals assert.panicswithvalue(t, panicswithvaluef panicswithvaluef(t assert.panicswithvaluef(t, panicsf panicsf(t assert.panicsf(t, positive positive(t assert.positive(t, 1.23) positivef positivef(t assert.positivef(t, 1.23, regexp(t assert.regexp(t, regexp.mustcompile(\"start\"), \"start...$\", regexpf regexpf(t assert.regexpf(t, same(t assert.same(t, samef samef(t assert.samef(t, subset(t assert.subset(t, [\"x\"]) subsetf subsetf(t assert.subsetf(t, [\"x\"], true(t true. assert.true(t, truef truef(t assert.truef(t, withinduration withinduration(t time.time, times duration assert.withinduration(t, time.now(), 10*time.second) withindurationf withindurationf(t assert.withindurationf(t, withinrange withinrange(t actual, start, end time range (inclusive). assert.withinrange(t, time.now().add(-time.second), time.now().add(time.second)) withinrangef withinrangef(t start assert.withinrangef(t, time.now().add(time.second), yamleq yamleq(t documents yaml `--- key: --- document, evaluated ` subsequent assert.yamleq(t, actual) yamleqf yamleqf(t assert.yamleqf(t, zero(t zerof zerof(t filtered unexported methods around testingt (a *assertions) condition(comp conditionf(comp contains(s a.contains(\"hello a.contains([\"hello\", a.contains({\"hello\": containsf(s a.containsf(\"hello a.containsf([\"hello\", a.containsf({\"hello\": direxists(path direxistsf(path elementsmatch(lista a.elementsmatch(\\[1, elementsmatchf(lista a.elementsmatchf(\\[1, empty(object a.empty(obj) emptyf(object a.emptyf(obj, equal(expected a.equal(123, equalerror(theerror a.equalerror(err, equalerrorf(theerror a.equalerrorf(err, equalexportedvalues(expected a.equalexportedvalues(s{1, equalexportedvaluesf(expected a.equalexportedvaluesf(s{1, equalvalues(expected a.equalvalues(uint32(123), equalvaluesf(expected a.equalvaluesf(uint32(123), equalf(expected a.equalf(123, error(err a.error(err) erroras(err errorasf(err errorcontains(theerror a.errorcontains(err, errorcontainsf(theerror a.errorcontainsf(err, erroris(err errorisf(err errorf(err a.errorf(err, eventually(condition a.eventually(func() eventuallywitht(condition a.eventuallywitht(func(c eventuallywithtf(condition a.eventuallywithtf(func(c eventuallyf(condition a.eventuallyf(func() exactly(expected a.exactly(int32(123), exactlyf(expected a.exactlyf(int32(123), fail(failuremessage failnow(failuremessage failnowf(failuremessage failf(failuremessage false(value a.false(mybool) falsef(value a.falsef(mybool, fileexists(path fileexistsf(path greater(e1 a.greater(2, a.greater(float64(2), a.greater(\"b\", greaterorequal(e1 a.greaterorequal(2, a.greaterorequal(\"b\", greaterorequalf(e1 a.greaterorequalf(2, a.greaterorequalf(\"b\", greaterf(e1 a.greaterf(2, a.greaterf(float64(2), a.greaterf(\"b\", httpbodycontains(handler a.httpbodycontains(myhandler, httpbodycontainsf(handler a.httpbodycontainsf(myhandler, httpbodynotcontains(handler a.httpbodynotcontains(myhandler, httpbodynotcontainsf(handler a.httpbodynotcontainsf(myhandler, httperror(handler a.httperror(myhandler, httperrorf(handler a.httperrorf(myhandler, httpredirect(handler a.httpredirect(myhandler, httpredirectf(handler a.httpredirectf(myhandler, httpstatuscode(handler a.httpstatuscode(myhandler, httpstatuscodef(handler a.httpstatuscodef(myhandler, httpsuccess(handler a.httpsuccess(myhandler, httpsuccessf(handler a.httpsuccessf(myhandler, implements(interfaceobject a.implements((*myinterface)(nil), implementsf(interfaceobject a.implementsf((*myinterface)(nil), indelta(expected a.indelta(math.pi, indeltamapvalues(expected indeltamapvaluesf(expected indeltaslice(expected indeltaslicef(expected indeltaf(expected a.indeltaf(math.pi, inepsilon(expected inepsilonslice(expected inepsilonslicef(expected inepsilonf(expected isdecreasing(object a.isdecreasing([]int{2, a.isdecreasing([]float{2, a.isdecreasing([]string{\"b\", isdecreasingf(object a.isdecreasingf([]int{2, a.isdecreasingf([]float{2, a.isdecreasingf([]string{\"b\", isincreasing(object a.isincreasing([]int{1, a.isincreasing([]float{1, a.isincreasing([]string{\"a\", isincreasingf(object a.isincreasingf([]int{1, a.isincreasingf([]float{1, a.isincreasingf([]string{\"a\", isnondecreasing(object a.isnondecreasing([]int{1, a.isnondecreasing([]float{1, a.isnondecreasing([]string{\"a\", isnondecreasingf(object a.isnondecreasingf([]int{1, a.isnondecreasingf([]float{1, a.isnondecreasingf([]string{\"a\", isnonincreasing(object a.isnonincreasing([]int{2, a.isnonincreasing([]float{2, a.isnonincreasing([]string{\"b\", isnonincreasingf(object a.isnonincreasingf([]int{2, a.isnonincreasingf([]float{2, a.isnonincreasingf([]string{\"b\", isnottype(thetype a.isnottype(&notmystruct{}, isnottypef(thetype a.isnottypef(&notmystruct{}, istype(expectedtype a.istype(&mystruct{}, istypef(expectedtype a.istypef(&mystruct{}, jsoneq(expected a.jsoneq(`{\"hello\": jsoneqf(expected a.jsoneqf(`{\"hello\": len(object a.len(myslice, lenf(object a.lenf(myslice, less(e1 a.less(1, a.less(float64(1), a.less(\"a\", lessorequal(e1 a.lessorequal(1, a.lessorequal(2, a.lessorequal(\"a\", a.lessorequal(\"b\", lessorequalf(e1 a.lessorequalf(1, a.lessorequalf(2, a.lessorequalf(\"a\", a.lessorequalf(\"b\", lessf(e1 a.lessf(1, a.lessf(float64(1), a.lessf(\"a\", negative(e a.negative(-1) a.negative(-1.23) negativef(e a.negativef(-1, a.negativef(-1.23, never(condition a.never(func() neverf(condition a.neverf(func() nil(object a.nil(err) nilf(object a.nilf(err, nodirexists(path nodirexistsf(path noerror(err a.noerror(err) noerrorf(err a.noerrorf(err, nofileexists(path nofileexistsf(path notcontains(s a.notcontains(\"hello a.notcontains([\"hello\", a.notcontains({\"hello\": notcontainsf(s a.notcontainsf(\"hello a.notcontainsf([\"hello\", a.notcontainsf({\"hello\": notelementsmatch(lista a.notelementsmatch(\\[1, notelementsmatchf(lista a.notelementsmatchf(\\[1, notempty(object a.notempty(obj) notemptyf(object a.notemptyf(obj, notequal(expected a.notequal(obj1, notequalvalues(expected a.notequalvalues(obj1, notequalvaluesf(expected a.notequalvaluesf(obj1, notequalf(expected a.notequalf(obj1, noterroras(err noterrorasf(err noterroris(err noterrorisf(err notimplements(interfaceobject a.notimplements((*myinterface)(nil), notimplementsf(interfaceobject a.notimplementsf((*myinterface)(nil), notnil(object a.notnil(err) notnilf(object a.notnilf(err, notpanics(f a.notpanics(func(){ notpanicsf(f a.notpanicsf(func(){ notregexp(rx a.notregexp(regexp.mustcompile(\"starts\"), a.notregexp(\"^start\", notregexpf(rx a.notregexpf(regexp.mustcompile(\"starts\"), a.notregexpf(\"^start\", notsame(expected a.notsame(ptr1, notsamef(expected a.notsamef(ptr1, notsubset(list a.notsubset([1, a.notsubset({\"x\": notsubsetf(list a.notsubsetf([1, a.notsubsetf({\"x\": notzero(i notzerof(i panics(f a.panics(func(){ panicswitherror(errstring a.panicswitherror(\"crazy panicswitherrorf(errstring a.panicswitherrorf(\"crazy panicswithvalue(expected a.panicswithvalue(\"crazy panicswithvaluef(expected a.panicswithvaluef(\"crazy panicsf(f a.panicsf(func(){ positive(e a.positive(1) a.positive(1.23) positivef(e a.positivef(1, a.positivef(1.23, regexp(rx a.regexp(regexp.mustcompile(\"start\"), a.regexp(\"start...$\", regexpf(rx a.regexpf(regexp.mustcompile(\"start\"), a.regexpf(\"start...$\", same(expected a.same(ptr1, samef(expected a.samef(ptr1, subset(list a.subset([1, a.subset({\"x\": subsetf(list a.subsetf([1, a.subsetf({\"x\": true(value a.true(mybool) truef(value a.truef(mybool, withinduration(expected a.withinduration(time.now(), withindurationf(expected a.withindurationf(time.now(), withinrange(actual a.withinrange(time.now(), withinrangef(actual a.withinrangef(time.now(), yamleq(expected a.yamleq(expected, yamleqf(expected a.yamleqf(expected, zero(i zerof(i boolassertionfunc func(testingt, common prototype validating table driven tests. example: t &testing.t{} isokay func(x int) x >= 42 tests []struct name arg }{ {\"-1 bad\", false}, {\"42 good\", 42, true}, {\"41 41, {\"45 cool\", 45, _, tt t.run(tt.name, func(t tt.assertion(t, isokay(tt.arg)) interface errors. copy (*collectt) copy(testingt) internal been published. now just (c *collectt) errorf(format failnow() stops execution calling runtime.goexit. (collectt) helper() like [testing.t.helper](https://pkg.go.dev/testing#t.helper) nothing. reset reset() comparetype compareresult ever accidentally published since v1.6.0. it. (success comparisonassertionfunc values. adder func(x, y + expect {\"2+2=4\", args{2, 4, equal}, {\"2+2!=5\", 5, notequal}, {\"2+3==5\", exactly}, tt.expect, adder(tt.args.x, tt.args.y)) errorassertionfunc dumbparsenum func(input v json.unmarshal([]byte(input), v) {\"1.2 number\", \"1.2\", noerror}, {\"1.2.3 \"1.2.3\", error}, {\"true \"true\", {\"3 \"3\", float64 dumbparsenum(tt.arg, &x)) panicassertionfunc panicfn {\"with panic\", panic(nil) panics}, {\"without {}, notpanics}, tt.panicfn) defines passed assert.panics assert.notpanics methods, represents simple arguments, \\*testing.t - `errorf: func(format ...interface{})`: valueassertionfunc single dumbparse string) interface{} _ &x) nil\", notnil}, {\"empty \"\", nil}, {\"zero \"0\", zero\", zero}, {\"false \"false\", dumbparse(tt.arg))",
+      "symbols": [
+        {
+          "name": "var AnError",
+          "kind": "go variable",
+          "anchor": "var-AnError"
+        },
+        {
+          "name": "func CallerInfo() []string",
+          "kind": "go function",
+          "anchor": "func-CallerInfo"
+        },
+        {
+          "name": "func Condition(t TestingT, comp Comparison, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Condition"
+        },
+        {
+          "name": "func Conditionf(t TestingT, comp Comparison, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Conditionf"
+        },
+        {
+          "name": "func Contains(t TestingT, s, contains interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Contains"
+        },
+        {
+          "name": "func Containsf(t TestingT, s interface{}, contains interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Containsf"
+        },
+        {
+          "name": "func DirExists(t TestingT, path string, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-DirExists"
+        },
+        {
+          "name": "func DirExistsf(t TestingT, path string, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-DirExistsf"
+        },
+        {
+          "name": "func ElementsMatch(t TestingT, listA, listB interface{}, msgAndArgs ...interface{}) (ok bool)",
+          "kind": "go function",
+          "anchor": "func-ElementsMatch"
+        },
+        {
+          "name": "func ElementsMatchf(t TestingT, listA interface{}, listB interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-ElementsMatchf"
+        },
+        {
+          "name": "func Empty(t TestingT, object interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Empty"
+        },
+        {
+          "name": "func Emptyf(t TestingT, object interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Emptyf"
+        },
+        {
+          "name": "func Equal(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Equal"
+        },
+        {
+          "name": "func EqualError(t TestingT, theError error, errString string, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-EqualError"
+        },
+        {
+          "name": "func EqualErrorf(t TestingT, theError error, errString string, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-EqualErrorf"
+        },
+        {
+          "name": "func EqualExportedValues(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-EqualExportedValues"
+        },
+        {
+          "name": "func EqualExportedValuesf(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-EqualExportedValuesf"
+        },
+        {
+          "name": "func EqualValues(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-EqualValues"
+        },
+        {
+          "name": "func EqualValuesf(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-EqualValuesf"
+        },
+        {
+          "name": "func Equalf(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Equalf"
+        },
+        {
+          "name": "func Error(t TestingT, err error, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Error"
+        },
+        {
+          "name": "func ErrorAs(t TestingT, err error, target interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-ErrorAs"
+        },
+        {
+          "name": "func ErrorAsf(t TestingT, err error, target interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-ErrorAsf"
+        },
+        {
+          "name": "func ErrorContains(t TestingT, theError error, contains string, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-ErrorContains"
+        },
+        {
+          "name": "func ErrorContainsf(t TestingT, theError error, contains string, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-ErrorContainsf"
+        },
+        {
+          "name": "func ErrorIs(t TestingT, err, target error, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-ErrorIs"
+        },
+        {
+          "name": "func ErrorIsf(t TestingT, err error, target error, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-ErrorIsf"
+        },
+        {
+          "name": "func Errorf(t TestingT, err error, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Errorf"
+        },
+        {
+          "name": "func Eventually(t TestingT, condition func() bool, waitFor time.Duration, tick time.Duration, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Eventually"
+        },
+        {
+          "name": "func EventuallyWithT(t TestingT, condition func(collect *CollectT), waitFor time.Duration, tick time.Duration, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-EventuallyWithT"
+        },
+        {
+          "name": "func EventuallyWithTf(t TestingT, condition func(collect *CollectT), waitFor time.Duration, tick time.Duration, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-EventuallyWithTf"
+        },
+        {
+          "name": "func Eventuallyf(t TestingT, condition func() bool, waitFor time.Duration, tick time.Duration, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Eventuallyf"
+        },
+        {
+          "name": "func Exactly(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Exactly"
+        },
+        {
+          "name": "func Exactlyf(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Exactlyf"
+        },
+        {
+          "name": "func Fail(t TestingT, failureMessage string, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Fail"
+        },
+        {
+          "name": "func FailNow(t TestingT, failureMessage string, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-FailNow"
+        },
+        {
+          "name": "func FailNowf(t TestingT, failureMessage string, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-FailNowf"
+        },
+        {
+          "name": "func Failf(t TestingT, failureMessage string, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Failf"
+        },
+        {
+          "name": "func False(t TestingT, value bool, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-False"
+        },
+        {
+          "name": "func Falsef(t TestingT, value bool, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Falsef"
+        },
+        {
+          "name": "func FileExists(t TestingT, path string, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-FileExists"
+        },
+        {
+          "name": "func FileExistsf(t TestingT, path string, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-FileExistsf"
+        },
+        {
+          "name": "func Greater(t TestingT, e1 interface{}, e2 interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Greater"
+        },
+        {
+          "name": "func GreaterOrEqual(t TestingT, e1 interface{}, e2 interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-GreaterOrEqual"
+        },
+        {
+          "name": "func GreaterOrEqualf(t TestingT, e1 interface{}, e2 interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-GreaterOrEqualf"
+        },
+        {
+          "name": "func Greaterf(t TestingT, e1 interface{}, e2 interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Greaterf"
+        },
+        {
+          "name": "func HTTPBody(handler http.HandlerFunc, method, url string, values url.Values) string",
+          "kind": "go function",
+          "anchor": "func-HTTPBody"
+        },
+        {
+          "name": "func HTTPBodyContains(t TestingT, handler http.HandlerFunc, method, url string, values url.Values, str interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-HTTPBodyContains"
+        },
+        {
+          "name": "func HTTPBodyContainsf(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, str interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-HTTPBodyContainsf"
+        },
+        {
+          "name": "func HTTPBodyNotContains(t TestingT, handler http.HandlerFunc, method, url string, values url.Values, str interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-HTTPBodyNotContains"
+        },
+        {
+          "name": "func HTTPBodyNotContainsf(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, str interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-HTTPBodyNotContainsf"
+        },
+        {
+          "name": "func HTTPError(t TestingT, handler http.HandlerFunc, method, url string, values url.Values, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-HTTPError"
+        },
+        {
+          "name": "func HTTPErrorf(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-HTTPErrorf"
+        },
+        {
+          "name": "func HTTPRedirect(t TestingT, handler http.HandlerFunc, method, url string, values url.Values, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-HTTPRedirect"
+        },
+        {
+          "name": "func HTTPRedirectf(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-HTTPRedirectf"
+        },
+        {
+          "name": "func HTTPStatusCode(t TestingT, handler http.HandlerFunc, method, url string, values url.Values, statuscode int, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-HTTPStatusCode"
+        },
+        {
+          "name": "func HTTPStatusCodef(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, statuscode int, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-HTTPStatusCodef"
+        },
+        {
+          "name": "func HTTPSuccess(t TestingT, handler http.HandlerFunc, method, url string, values url.Values, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-HTTPSuccess"
+        },
+        {
+          "name": "func HTTPSuccessf(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-HTTPSuccessf"
+        },
+        {
+          "name": "func Implements(t TestingT, interfaceObject interface{}, object interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Implements"
+        },
+        {
+          "name": "func Implementsf(t TestingT, interfaceObject interface{}, object interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Implementsf"
+        },
+        {
+          "name": "func InDelta(t TestingT, expected, actual interface{}, delta float64, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-InDelta"
+        },
+        {
+          "name": "func InDeltaMapValues(t TestingT, expected, actual interface{}, delta float64, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-InDeltaMapValues"
+        },
+        {
+          "name": "func InDeltaMapValuesf(t TestingT, expected interface{}, actual interface{}, delta float64, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-InDeltaMapValuesf"
+        },
+        {
+          "name": "func InDeltaSlice(t TestingT, expected, actual interface{}, delta float64, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-InDeltaSlice"
+        },
+        {
+          "name": "func InDeltaSlicef(t TestingT, expected interface{}, actual interface{}, delta float64, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-InDeltaSlicef"
+        },
+        {
+          "name": "func InDeltaf(t TestingT, expected interface{}, actual interface{}, delta float64, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-InDeltaf"
+        },
+        {
+          "name": "func InEpsilon(t TestingT, expected, actual interface{}, epsilon float64, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-InEpsilon"
+        },
+        {
+          "name": "func InEpsilonSlice(t TestingT, expected, actual interface{}, epsilon float64, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-InEpsilonSlice"
+        },
+        {
+          "name": "func InEpsilonSlicef(t TestingT, expected interface{}, actual interface{}, epsilon float64, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-InEpsilonSlicef"
+        },
+        {
+          "name": "func InEpsilonf(t TestingT, expected interface{}, actual interface{}, epsilon float64, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-InEpsilonf"
+        },
+        {
+          "name": "func IsDecreasing(t TestingT, object interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-IsDecreasing"
+        },
+        {
+          "name": "func IsDecreasingf(t TestingT, object interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-IsDecreasingf"
+        },
+        {
+          "name": "func IsIncreasing(t TestingT, object interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-IsIncreasing"
+        },
+        {
+          "name": "func IsIncreasingf(t TestingT, object interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-IsIncreasingf"
+        },
+        {
+          "name": "func IsNonDecreasing(t TestingT, object interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-IsNonDecreasing"
+        },
+        {
+          "name": "func IsNonDecreasingf(t TestingT, object interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-IsNonDecreasingf"
+        },
+        {
+          "name": "func IsNonIncreasing(t TestingT, object interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-IsNonIncreasing"
+        },
+        {
+          "name": "func IsNonIncreasingf(t TestingT, object interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-IsNonIncreasingf"
+        },
+        {
+          "name": "func IsNotType(t TestingT, theType, object interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-IsNotType"
+        },
+        {
+          "name": "func IsNotTypef(t TestingT, theType interface{}, object interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-IsNotTypef"
+        },
+        {
+          "name": "func IsType(t TestingT, expectedType, object interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-IsType"
+        },
+        {
+          "name": "func IsTypef(t TestingT, expectedType interface{}, object interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-IsTypef"
+        },
+        {
+          "name": "func JSONEq(t TestingT, expected string, actual string, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-JSONEq"
+        },
+        {
+          "name": "func JSONEqf(t TestingT, expected string, actual string, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-JSONEqf"
+        },
+        {
+          "name": "func Len(t TestingT, object interface{}, length int, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Len"
+        },
+        {
+          "name": "func Lenf(t TestingT, object interface{}, length int, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Lenf"
+        },
+        {
+          "name": "func Less(t TestingT, e1 interface{}, e2 interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Less"
+        },
+        {
+          "name": "func LessOrEqual(t TestingT, e1 interface{}, e2 interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-LessOrEqual"
+        },
+        {
+          "name": "func LessOrEqualf(t TestingT, e1 interface{}, e2 interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-LessOrEqualf"
+        },
+        {
+          "name": "func Lessf(t TestingT, e1 interface{}, e2 interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Lessf"
+        },
+        {
+          "name": "func Negative(t TestingT, e interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Negative"
+        },
+        {
+          "name": "func Negativef(t TestingT, e interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Negativef"
+        },
+        {
+          "name": "func Never(t TestingT, condition func() bool, waitFor time.Duration, tick time.Duration, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Never"
+        },
+        {
+          "name": "func Neverf(t TestingT, condition func() bool, waitFor time.Duration, tick time.Duration, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Neverf"
+        },
+        {
+          "name": "func New(t TestingT) *Assertions",
+          "kind": "go function",
+          "anchor": "func-New"
+        },
+        {
+          "name": "func Nil(t TestingT, object interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Nil"
+        },
+        {
+          "name": "func Nilf(t TestingT, object interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Nilf"
+        },
+        {
+          "name": "func NoDirExists(t TestingT, path string, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NoDirExists"
+        },
+        {
+          "name": "func NoDirExistsf(t TestingT, path string, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NoDirExistsf"
+        },
+        {
+          "name": "func NoError(t TestingT, err error, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NoError"
+        },
+        {
+          "name": "func NoErrorf(t TestingT, err error, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NoErrorf"
+        },
+        {
+          "name": "func NoFileExists(t TestingT, path string, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NoFileExists"
+        },
+        {
+          "name": "func NoFileExistsf(t TestingT, path string, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NoFileExistsf"
+        },
+        {
+          "name": "func NotContains(t TestingT, s, contains interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotContains"
+        },
+        {
+          "name": "func NotContainsf(t TestingT, s interface{}, contains interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotContainsf"
+        },
+        {
+          "name": "func NotElementsMatch(t TestingT, listA, listB interface{}, msgAndArgs ...interface{}) (ok bool)",
+          "kind": "go function",
+          "anchor": "func-NotElementsMatch"
+        },
+        {
+          "name": "func NotElementsMatchf(t TestingT, listA interface{}, listB interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotElementsMatchf"
+        },
+        {
+          "name": "func NotEmpty(t TestingT, object interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotEmpty"
+        },
+        {
+          "name": "func NotEmptyf(t TestingT, object interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotEmptyf"
+        },
+        {
+          "name": "func NotEqual(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotEqual"
+        },
+        {
+          "name": "func NotEqualValues(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotEqualValues"
+        },
+        {
+          "name": "func NotEqualValuesf(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotEqualValuesf"
+        },
+        {
+          "name": "func NotEqualf(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotEqualf"
+        },
+        {
+          "name": "func NotErrorAs(t TestingT, err error, target interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotErrorAs"
+        },
+        {
+          "name": "func NotErrorAsf(t TestingT, err error, target interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotErrorAsf"
+        },
+        {
+          "name": "func NotErrorIs(t TestingT, err, target error, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotErrorIs"
+        },
+        {
+          "name": "func NotErrorIsf(t TestingT, err error, target error, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotErrorIsf"
+        },
+        {
+          "name": "func NotImplements(t TestingT, interfaceObject interface{}, object interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotImplements"
+        },
+        {
+          "name": "func NotImplementsf(t TestingT, interfaceObject interface{}, object interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotImplementsf"
+        },
+        {
+          "name": "func NotNil(t TestingT, object interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotNil"
+        },
+        {
+          "name": "func NotNilf(t TestingT, object interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotNilf"
+        },
+        {
+          "name": "func NotPanics(t TestingT, f PanicTestFunc, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotPanics"
+        },
+        {
+          "name": "func NotPanicsf(t TestingT, f PanicTestFunc, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotPanicsf"
+        },
+        {
+          "name": "func NotRegexp(t TestingT, rx interface{}, str interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotRegexp"
+        },
+        {
+          "name": "func NotRegexpf(t TestingT, rx interface{}, str interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotRegexpf"
+        },
+        {
+          "name": "func NotSame(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotSame"
+        },
+        {
+          "name": "func NotSamef(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotSamef"
+        },
+        {
+          "name": "func NotSubset(t TestingT, list, subset interface{}, msgAndArgs ...interface{}) (ok bool)",
+          "kind": "go function",
+          "anchor": "func-NotSubset"
+        },
+        {
+          "name": "func NotSubsetf(t TestingT, list interface{}, subset interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotSubsetf"
+        },
+        {
+          "name": "func NotZero(t TestingT, i interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotZero"
+        },
+        {
+          "name": "func NotZerof(t TestingT, i interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-NotZerof"
+        },
+        {
+          "name": "func ObjectsAreEqual(expected, actual interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-ObjectsAreEqual"
+        },
+        {
+          "name": "func ObjectsAreEqualValues(expected, actual interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-ObjectsAreEqualValues"
+        },
+        {
+          "name": "func ObjectsExportedFieldsAreEqual(expected, actual interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-ObjectsExportedFieldsAreEqual"
+        },
+        {
+          "name": "func Panics(t TestingT, f PanicTestFunc, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Panics"
+        },
+        {
+          "name": "func PanicsWithError(t TestingT, errString string, f PanicTestFunc, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-PanicsWithError"
+        },
+        {
+          "name": "func PanicsWithErrorf(t TestingT, errString string, f PanicTestFunc, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-PanicsWithErrorf"
+        },
+        {
+          "name": "func PanicsWithValue(t TestingT, expected interface{}, f PanicTestFunc, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-PanicsWithValue"
+        },
+        {
+          "name": "func PanicsWithValuef(t TestingT, expected interface{}, f PanicTestFunc, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-PanicsWithValuef"
+        },
+        {
+          "name": "func Panicsf(t TestingT, f PanicTestFunc, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Panicsf"
+        },
+        {
+          "name": "func Positive(t TestingT, e interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Positive"
+        },
+        {
+          "name": "func Positivef(t TestingT, e interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Positivef"
+        },
+        {
+          "name": "func Regexp(t TestingT, rx interface{}, str interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Regexp"
+        },
+        {
+          "name": "func Regexpf(t TestingT, rx interface{}, str interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Regexpf"
+        },
+        {
+          "name": "func Same(t TestingT, expected, actual interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Same"
+        },
+        {
+          "name": "func Samef(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Samef"
+        },
+        {
+          "name": "func Subset(t TestingT, list, subset interface{}, msgAndArgs ...interface{}) (ok bool)",
+          "kind": "go function",
+          "anchor": "func-Subset"
+        },
+        {
+          "name": "func Subsetf(t TestingT, list interface{}, subset interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Subsetf"
+        },
+        {
+          "name": "func True(t TestingT, value bool, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-True"
+        },
+        {
+          "name": "func Truef(t TestingT, value bool, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Truef"
+        },
+        {
+          "name": "func WithinDuration(t TestingT, expected, actual time.Time, delta time.Duration, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-WithinDuration"
+        },
+        {
+          "name": "func WithinDurationf(t TestingT, expected time.Time, actual time.Time, delta time.Duration, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-WithinDurationf"
+        },
+        {
+          "name": "func WithinRange(t TestingT, actual, start, end time.Time, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-WithinRange"
+        },
+        {
+          "name": "func WithinRangef(t TestingT, actual time.Time, start time.Time, end time.Time, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-WithinRangef"
+        },
+        {
+          "name": "func YAMLEq(t TestingT, expected string, actual string, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-YAMLEq"
+        },
+        {
+          "name": "func YAMLEqf(t TestingT, expected string, actual string, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-YAMLEqf"
+        },
+        {
+          "name": "func Zero(t TestingT, i interface{}, msgAndArgs ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Zero"
+        },
+        {
+          "name": "func Zerof(t TestingT, i interface{}, msg string, args ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-Zerof"
+        },
+        {
+          "name": "type Assertions",
+          "kind": "go type",
+          "anchor": "type-Assertions"
+        },
+        {
+          "name": "Assertions.Condition",
+          "kind": "go method",
+          "anchor": "method-Assertions-Condition"
+        },
+        {
+          "name": "Assertions.Conditionf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Conditionf"
+        },
+        {
+          "name": "Assertions.Contains",
+          "kind": "go method",
+          "anchor": "method-Assertions-Contains"
+        },
+        {
+          "name": "Assertions.Containsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Containsf"
+        },
+        {
+          "name": "Assertions.DirExists",
+          "kind": "go method",
+          "anchor": "method-Assertions-DirExists"
+        },
+        {
+          "name": "Assertions.DirExistsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-DirExistsf"
+        },
+        {
+          "name": "Assertions.ElementsMatch",
+          "kind": "go method",
+          "anchor": "method-Assertions-ElementsMatch"
+        },
+        {
+          "name": "Assertions.ElementsMatchf",
+          "kind": "go method",
+          "anchor": "method-Assertions-ElementsMatchf"
+        },
+        {
+          "name": "Assertions.Empty",
+          "kind": "go method",
+          "anchor": "method-Assertions-Empty"
+        },
+        {
+          "name": "Assertions.Emptyf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Emptyf"
+        },
+        {
+          "name": "Assertions.Equal",
+          "kind": "go method",
+          "anchor": "method-Assertions-Equal"
+        },
+        {
+          "name": "Assertions.EqualError",
+          "kind": "go method",
+          "anchor": "method-Assertions-EqualError"
+        },
+        {
+          "name": "Assertions.EqualErrorf",
+          "kind": "go method",
+          "anchor": "method-Assertions-EqualErrorf"
+        },
+        {
+          "name": "Assertions.EqualExportedValues",
+          "kind": "go method",
+          "anchor": "method-Assertions-EqualExportedValues"
+        },
+        {
+          "name": "Assertions.EqualExportedValuesf",
+          "kind": "go method",
+          "anchor": "method-Assertions-EqualExportedValuesf"
+        },
+        {
+          "name": "Assertions.EqualValues",
+          "kind": "go method",
+          "anchor": "method-Assertions-EqualValues"
+        },
+        {
+          "name": "Assertions.EqualValuesf",
+          "kind": "go method",
+          "anchor": "method-Assertions-EqualValuesf"
+        },
+        {
+          "name": "Assertions.Equalf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Equalf"
+        },
+        {
+          "name": "Assertions.Error",
+          "kind": "go method",
+          "anchor": "method-Assertions-Error"
+        },
+        {
+          "name": "Assertions.ErrorAs",
+          "kind": "go method",
+          "anchor": "method-Assertions-ErrorAs"
+        },
+        {
+          "name": "Assertions.ErrorAsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-ErrorAsf"
+        },
+        {
+          "name": "Assertions.ErrorContains",
+          "kind": "go method",
+          "anchor": "method-Assertions-ErrorContains"
+        },
+        {
+          "name": "Assertions.ErrorContainsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-ErrorContainsf"
+        },
+        {
+          "name": "Assertions.ErrorIs",
+          "kind": "go method",
+          "anchor": "method-Assertions-ErrorIs"
+        },
+        {
+          "name": "Assertions.ErrorIsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-ErrorIsf"
+        },
+        {
+          "name": "Assertions.Errorf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Errorf"
+        },
+        {
+          "name": "Assertions.Eventually",
+          "kind": "go method",
+          "anchor": "method-Assertions-Eventually"
+        },
+        {
+          "name": "Assertions.EventuallyWithT",
+          "kind": "go method",
+          "anchor": "method-Assertions-EventuallyWithT"
+        },
+        {
+          "name": "Assertions.EventuallyWithTf",
+          "kind": "go method",
+          "anchor": "method-Assertions-EventuallyWithTf"
+        },
+        {
+          "name": "Assertions.Eventuallyf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Eventuallyf"
+        },
+        {
+          "name": "Assertions.Exactly",
+          "kind": "go method",
+          "anchor": "method-Assertions-Exactly"
+        },
+        {
+          "name": "Assertions.Exactlyf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Exactlyf"
+        },
+        {
+          "name": "Assertions.Fail",
+          "kind": "go method",
+          "anchor": "method-Assertions-Fail"
+        },
+        {
+          "name": "Assertions.FailNow",
+          "kind": "go method",
+          "anchor": "method-Assertions-FailNow"
+        },
+        {
+          "name": "Assertions.FailNowf",
+          "kind": "go method",
+          "anchor": "method-Assertions-FailNowf"
+        },
+        {
+          "name": "Assertions.Failf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Failf"
+        },
+        {
+          "name": "Assertions.False",
+          "kind": "go method",
+          "anchor": "method-Assertions-False"
+        },
+        {
+          "name": "Assertions.Falsef",
+          "kind": "go method",
+          "anchor": "method-Assertions-Falsef"
+        },
+        {
+          "name": "Assertions.FileExists",
+          "kind": "go method",
+          "anchor": "method-Assertions-FileExists"
+        },
+        {
+          "name": "Assertions.FileExistsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-FileExistsf"
+        },
+        {
+          "name": "Assertions.Greater",
+          "kind": "go method",
+          "anchor": "method-Assertions-Greater"
+        },
+        {
+          "name": "Assertions.GreaterOrEqual",
+          "kind": "go method",
+          "anchor": "method-Assertions-GreaterOrEqual"
+        },
+        {
+          "name": "Assertions.GreaterOrEqualf",
+          "kind": "go method",
+          "anchor": "method-Assertions-GreaterOrEqualf"
+        },
+        {
+          "name": "Assertions.Greaterf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Greaterf"
+        },
+        {
+          "name": "Assertions.HTTPBodyContains",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPBodyContains"
+        },
+        {
+          "name": "Assertions.HTTPBodyContainsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPBodyContainsf"
+        },
+        {
+          "name": "Assertions.HTTPBodyNotContains",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPBodyNotContains"
+        },
+        {
+          "name": "Assertions.HTTPBodyNotContainsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPBodyNotContainsf"
+        },
+        {
+          "name": "Assertions.HTTPError",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPError"
+        },
+        {
+          "name": "Assertions.HTTPErrorf",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPErrorf"
+        },
+        {
+          "name": "Assertions.HTTPRedirect",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPRedirect"
+        },
+        {
+          "name": "Assertions.HTTPRedirectf",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPRedirectf"
+        },
+        {
+          "name": "Assertions.HTTPStatusCode",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPStatusCode"
+        },
+        {
+          "name": "Assertions.HTTPStatusCodef",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPStatusCodef"
+        },
+        {
+          "name": "Assertions.HTTPSuccess",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPSuccess"
+        },
+        {
+          "name": "Assertions.HTTPSuccessf",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPSuccessf"
+        },
+        {
+          "name": "Assertions.Implements",
+          "kind": "go method",
+          "anchor": "method-Assertions-Implements"
+        },
+        {
+          "name": "Assertions.Implementsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Implementsf"
+        },
+        {
+          "name": "Assertions.InDelta",
+          "kind": "go method",
+          "anchor": "method-Assertions-InDelta"
+        },
+        {
+          "name": "Assertions.InDeltaMapValues",
+          "kind": "go method",
+          "anchor": "method-Assertions-InDeltaMapValues"
+        },
+        {
+          "name": "Assertions.InDeltaMapValuesf",
+          "kind": "go method",
+          "anchor": "method-Assertions-InDeltaMapValuesf"
+        },
+        {
+          "name": "Assertions.InDeltaSlice",
+          "kind": "go method",
+          "anchor": "method-Assertions-InDeltaSlice"
+        },
+        {
+          "name": "Assertions.InDeltaSlicef",
+          "kind": "go method",
+          "anchor": "method-Assertions-InDeltaSlicef"
+        },
+        {
+          "name": "Assertions.InDeltaf",
+          "kind": "go method",
+          "anchor": "method-Assertions-InDeltaf"
+        },
+        {
+          "name": "Assertions.InEpsilon",
+          "kind": "go method",
+          "anchor": "method-Assertions-InEpsilon"
+        },
+        {
+          "name": "Assertions.InEpsilonSlice",
+          "kind": "go method",
+          "anchor": "method-Assertions-InEpsilonSlice"
+        },
+        {
+          "name": "Assertions.InEpsilonSlicef",
+          "kind": "go method",
+          "anchor": "method-Assertions-InEpsilonSlicef"
+        },
+        {
+          "name": "Assertions.InEpsilonf",
+          "kind": "go method",
+          "anchor": "method-Assertions-InEpsilonf"
+        },
+        {
+          "name": "Assertions.IsDecreasing",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsDecreasing"
+        },
+        {
+          "name": "Assertions.IsDecreasingf",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsDecreasingf"
+        },
+        {
+          "name": "Assertions.IsIncreasing",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsIncreasing"
+        },
+        {
+          "name": "Assertions.IsIncreasingf",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsIncreasingf"
+        },
+        {
+          "name": "Assertions.IsNonDecreasing",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsNonDecreasing"
+        },
+        {
+          "name": "Assertions.IsNonDecreasingf",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsNonDecreasingf"
+        },
+        {
+          "name": "Assertions.IsNonIncreasing",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsNonIncreasing"
+        },
+        {
+          "name": "Assertions.IsNonIncreasingf",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsNonIncreasingf"
+        },
+        {
+          "name": "Assertions.IsNotType",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsNotType"
+        },
+        {
+          "name": "Assertions.IsNotTypef",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsNotTypef"
+        },
+        {
+          "name": "Assertions.IsType",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsType"
+        },
+        {
+          "name": "Assertions.IsTypef",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsTypef"
+        },
+        {
+          "name": "Assertions.JSONEq",
+          "kind": "go method",
+          "anchor": "method-Assertions-JSONEq"
+        },
+        {
+          "name": "Assertions.JSONEqf",
+          "kind": "go method",
+          "anchor": "method-Assertions-JSONEqf"
+        },
+        {
+          "name": "Assertions.Len",
+          "kind": "go method",
+          "anchor": "method-Assertions-Len"
+        },
+        {
+          "name": "Assertions.Lenf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Lenf"
+        },
+        {
+          "name": "Assertions.Less",
+          "kind": "go method",
+          "anchor": "method-Assertions-Less"
+        },
+        {
+          "name": "Assertions.LessOrEqual",
+          "kind": "go method",
+          "anchor": "method-Assertions-LessOrEqual"
+        },
+        {
+          "name": "Assertions.LessOrEqualf",
+          "kind": "go method",
+          "anchor": "method-Assertions-LessOrEqualf"
+        },
+        {
+          "name": "Assertions.Lessf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Lessf"
+        },
+        {
+          "name": "Assertions.Negative",
+          "kind": "go method",
+          "anchor": "method-Assertions-Negative"
+        },
+        {
+          "name": "Assertions.Negativef",
+          "kind": "go method",
+          "anchor": "method-Assertions-Negativef"
+        },
+        {
+          "name": "Assertions.Never",
+          "kind": "go method",
+          "anchor": "method-Assertions-Never"
+        },
+        {
+          "name": "Assertions.Neverf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Neverf"
+        },
+        {
+          "name": "Assertions.Nil",
+          "kind": "go method",
+          "anchor": "method-Assertions-Nil"
+        },
+        {
+          "name": "Assertions.Nilf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Nilf"
+        },
+        {
+          "name": "Assertions.NoDirExists",
+          "kind": "go method",
+          "anchor": "method-Assertions-NoDirExists"
+        },
+        {
+          "name": "Assertions.NoDirExistsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NoDirExistsf"
+        },
+        {
+          "name": "Assertions.NoError",
+          "kind": "go method",
+          "anchor": "method-Assertions-NoError"
+        },
+        {
+          "name": "Assertions.NoErrorf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NoErrorf"
+        },
+        {
+          "name": "Assertions.NoFileExists",
+          "kind": "go method",
+          "anchor": "method-Assertions-NoFileExists"
+        },
+        {
+          "name": "Assertions.NoFileExistsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NoFileExistsf"
+        },
+        {
+          "name": "Assertions.NotContains",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotContains"
+        },
+        {
+          "name": "Assertions.NotContainsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotContainsf"
+        },
+        {
+          "name": "Assertions.NotElementsMatch",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotElementsMatch"
+        },
+        {
+          "name": "Assertions.NotElementsMatchf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotElementsMatchf"
+        },
+        {
+          "name": "Assertions.NotEmpty",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotEmpty"
+        },
+        {
+          "name": "Assertions.NotEmptyf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotEmptyf"
+        },
+        {
+          "name": "Assertions.NotEqual",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotEqual"
+        },
+        {
+          "name": "Assertions.NotEqualValues",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotEqualValues"
+        },
+        {
+          "name": "Assertions.NotEqualValuesf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotEqualValuesf"
+        },
+        {
+          "name": "Assertions.NotEqualf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotEqualf"
+        },
+        {
+          "name": "Assertions.NotErrorAs",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotErrorAs"
+        },
+        {
+          "name": "Assertions.NotErrorAsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotErrorAsf"
+        },
+        {
+          "name": "Assertions.NotErrorIs",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotErrorIs"
+        },
+        {
+          "name": "Assertions.NotErrorIsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotErrorIsf"
+        },
+        {
+          "name": "Assertions.NotImplements",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotImplements"
+        },
+        {
+          "name": "Assertions.NotImplementsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotImplementsf"
+        },
+        {
+          "name": "Assertions.NotNil",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotNil"
+        },
+        {
+          "name": "Assertions.NotNilf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotNilf"
+        },
+        {
+          "name": "Assertions.NotPanics",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotPanics"
+        },
+        {
+          "name": "Assertions.NotPanicsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotPanicsf"
+        },
+        {
+          "name": "Assertions.NotRegexp",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotRegexp"
+        },
+        {
+          "name": "Assertions.NotRegexpf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotRegexpf"
+        },
+        {
+          "name": "Assertions.NotSame",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotSame"
+        },
+        {
+          "name": "Assertions.NotSamef",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotSamef"
+        },
+        {
+          "name": "Assertions.NotSubset",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotSubset"
+        },
+        {
+          "name": "Assertions.NotSubsetf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotSubsetf"
+        },
+        {
+          "name": "Assertions.NotZero",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotZero"
+        },
+        {
+          "name": "Assertions.NotZerof",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotZerof"
+        },
+        {
+          "name": "Assertions.Panics",
+          "kind": "go method",
+          "anchor": "method-Assertions-Panics"
+        },
+        {
+          "name": "Assertions.PanicsWithError",
+          "kind": "go method",
+          "anchor": "method-Assertions-PanicsWithError"
+        },
+        {
+          "name": "Assertions.PanicsWithErrorf",
+          "kind": "go method",
+          "anchor": "method-Assertions-PanicsWithErrorf"
+        },
+        {
+          "name": "Assertions.PanicsWithValue",
+          "kind": "go method",
+          "anchor": "method-Assertions-PanicsWithValue"
+        },
+        {
+          "name": "Assertions.PanicsWithValuef",
+          "kind": "go method",
+          "anchor": "method-Assertions-PanicsWithValuef"
+        },
+        {
+          "name": "Assertions.Panicsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Panicsf"
+        },
+        {
+          "name": "Assertions.Positive",
+          "kind": "go method",
+          "anchor": "method-Assertions-Positive"
+        },
+        {
+          "name": "Assertions.Positivef",
+          "kind": "go method",
+          "anchor": "method-Assertions-Positivef"
+        },
+        {
+          "name": "Assertions.Regexp",
+          "kind": "go method",
+          "anchor": "method-Assertions-Regexp"
+        },
+        {
+          "name": "Assertions.Regexpf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Regexpf"
+        },
+        {
+          "name": "Assertions.Same",
+          "kind": "go method",
+          "anchor": "method-Assertions-Same"
+        },
+        {
+          "name": "Assertions.Samef",
+          "kind": "go method",
+          "anchor": "method-Assertions-Samef"
+        },
+        {
+          "name": "Assertions.Subset",
+          "kind": "go method",
+          "anchor": "method-Assertions-Subset"
+        },
+        {
+          "name": "Assertions.Subsetf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Subsetf"
+        },
+        {
+          "name": "Assertions.True",
+          "kind": "go method",
+          "anchor": "method-Assertions-True"
+        },
+        {
+          "name": "Assertions.Truef",
+          "kind": "go method",
+          "anchor": "method-Assertions-Truef"
+        },
+        {
+          "name": "Assertions.WithinDuration",
+          "kind": "go method",
+          "anchor": "method-Assertions-WithinDuration"
+        },
+        {
+          "name": "Assertions.WithinDurationf",
+          "kind": "go method",
+          "anchor": "method-Assertions-WithinDurationf"
+        },
+        {
+          "name": "Assertions.WithinRange",
+          "kind": "go method",
+          "anchor": "method-Assertions-WithinRange"
+        },
+        {
+          "name": "Assertions.WithinRangef",
+          "kind": "go method",
+          "anchor": "method-Assertions-WithinRangef"
+        },
+        {
+          "name": "Assertions.YAMLEq",
+          "kind": "go method",
+          "anchor": "method-Assertions-YAMLEq"
+        },
+        {
+          "name": "Assertions.YAMLEqf",
+          "kind": "go method",
+          "anchor": "method-Assertions-YAMLEqf"
+        },
+        {
+          "name": "Assertions.Zero",
+          "kind": "go method",
+          "anchor": "method-Assertions-Zero"
+        },
+        {
+          "name": "Assertions.Zerof",
+          "kind": "go method",
+          "anchor": "method-Assertions-Zerof"
+        },
+        {
+          "name": "type BoolAssertionFunc",
+          "kind": "go type",
+          "anchor": "type-BoolAssertionFunc"
+        },
+        {
+          "name": "Example BoolAssertionFunc",
+          "kind": "go example",
+          "anchor": "type-BoolAssertionFunc"
+        },
+        {
+          "name": "type CollectT",
+          "kind": "go type",
+          "anchor": "type-CollectT"
+        },
+        {
+          "name": "CollectT.Copy",
+          "kind": "go method",
+          "anchor": "method-CollectT-Copy"
+        },
+        {
+          "name": "CollectT.Errorf",
+          "kind": "go method",
+          "anchor": "method-CollectT-Errorf"
+        },
+        {
+          "name": "CollectT.FailNow",
+          "kind": "go method",
+          "anchor": "method-CollectT-FailNow"
+        },
+        {
+          "name": "CollectT.Helper",
+          "kind": "go method",
+          "anchor": "method-CollectT-Helper"
+        },
+        {
+          "name": "CollectT.Reset",
+          "kind": "go method",
+          "anchor": "method-CollectT-Reset"
+        },
+        {
+          "name": "type CompareType",
+          "kind": "go type",
+          "anchor": "type-CompareType"
+        },
+        {
+          "name": "type Comparison",
+          "kind": "go type",
+          "anchor": "type-Comparison"
+        },
+        {
+          "name": "type ComparisonAssertionFunc",
+          "kind": "go type",
+          "anchor": "type-ComparisonAssertionFunc"
+        },
+        {
+          "name": "Example ComparisonAssertionFunc",
+          "kind": "go example",
+          "anchor": "type-ComparisonAssertionFunc"
+        },
+        {
+          "name": "type ErrorAssertionFunc",
+          "kind": "go type",
+          "anchor": "type-ErrorAssertionFunc"
+        },
+        {
+          "name": "Example ErrorAssertionFunc",
+          "kind": "go example",
+          "anchor": "type-ErrorAssertionFunc"
+        },
+        {
+          "name": "type PanicAssertionFunc",
+          "kind": "go type",
+          "anchor": "type-PanicAssertionFunc"
+        },
+        {
+          "name": "Example PanicAssertionFunc",
+          "kind": "go example",
+          "anchor": "type-PanicAssertionFunc"
+        },
+        {
+          "name": "type PanicTestFunc",
+          "kind": "go type",
+          "anchor": "type-PanicTestFunc"
+        },
+        {
+          "name": "type TestingT",
+          "kind": "go type",
+          "anchor": "type-TestingT"
+        },
+        {
+          "name": "type ValueAssertionFunc",
+          "kind": "go type",
+          "anchor": "type-ValueAssertionFunc"
+        },
+        {
+          "name": "Example ValueAssertionFunc",
+          "kind": "go example",
+          "anchor": "type-ValueAssertionFunc"
+        }
+      ],
+      "documentId": "pkg-assert",
+      "locale": "en",
+      "contentLocale": "en",
+      "contentVersion": "current",
+      "versionScope": "site",
+      "alternates": [
+        {
+          "locale": "en",
+          "contentVersion": "current",
+          "url": "https://testify-docs.github.io/reference/pkg-assert.html",
+          "markdown": "https://testify-docs.github.io/reference/pkg-assert.md"
+        }
+      ]
+    },
+    {
+      "id": "reference/pkg-http.md",
+      "kind": "page",
+      "title": "http",
+      "description": "Deprecated: Use net/http/httptest instead.",
+      "tab": "reference",
+      "url": "https://testify-docs.github.io/reference/pkg-http.html",
+      "markdown": "https://testify-docs.github.io/reference/pkg-http.md",
+      "file": "reference/pkg-http.md",
+      "searchText": "deprecated: use [net/http/httptest](https://pkg.go.dev/net/http/httptest) instead. ## testresponsewriter ```go type struct { // statuscode is the last int written by call to writeheader(int) output a string containing bytes using write([]byte) func. contains filtered or unexported fields } ``` - `statuscode: int`: `output: string`: write(\\[]byte) header func (rw *testresponsewriter) header() http.header write write(bytes []byte) (int, error) writeheader writeheader(i int) testroundtripper mock.mock `mock.mock: mock.mock`: roundtrip (t *testroundtripper) roundtrip(req *http.request) (*http.response,",
+      "symbols": [
+        {
+          "name": "type TestResponseWriter",
+          "kind": "go type",
+          "anchor": "type-TestResponseWriter"
+        },
+        {
+          "name": "TestResponseWriter.Header",
+          "kind": "go method",
+          "anchor": "method-TestResponseWriter-Header"
+        },
+        {
+          "name": "TestResponseWriter.Write",
+          "kind": "go method",
+          "anchor": "method-TestResponseWriter-Write"
+        },
+        {
+          "name": "TestResponseWriter.WriteHeader",
+          "kind": "go method",
+          "anchor": "method-TestResponseWriter-WriteHeader"
+        },
+        {
+          "name": "type TestRoundTripper",
+          "kind": "go type",
+          "anchor": "type-TestRoundTripper"
+        },
+        {
+          "name": "TestRoundTripper.RoundTrip",
+          "kind": "go method",
+          "anchor": "method-TestRoundTripper-RoundTrip"
+        }
+      ],
+      "documentId": "pkg-http",
+      "locale": "en",
+      "contentLocale": "en",
+      "contentVersion": "current",
+      "versionScope": "site",
+      "alternates": [
+        {
+          "locale": "en",
+          "contentVersion": "current",
+          "url": "https://testify-docs.github.io/reference/pkg-http.html",
+          "markdown": "https://testify-docs.github.io/reference/pkg-http.md"
+        }
+      ]
+    },
+    {
+      "id": "reference/pkg-mock.md",
+      "kind": "page",
+      "title": "mock",
+      "description": "Package mock provides a system by which it is possible to mock your objects and verify calls are happening as expected.",
+      "tab": "reference",
+      "url": "https://testify-docs.github.io/reference/pkg-mock.html",
+      "markdown": "https://testify-docs.github.io/reference/pkg-mock.md",
+      "file": "reference/pkg-mock.md",
+      "searchText": "package mock provides a system by which it is possible to your objects and verify calls are happening as expected. ### example usage the an object, mock, that tracks activity on another object. usually embedded into test object shown below: type mytestobject struct { // add instance mock.mock other fields go here normal } when implementing methods of interface, you wire functions up call mock.called(args...) method, return appropriate values. for example, method saves name age person returns year their birth or error, might write this: func (o *mytestobject) savepersondetails(firstname, lastname string, int) (int, error) args := o.called(firstname, lastname, age) args.int(0), args.error(1) int, error bool examples strongly typed getters take argument index position. given this list: (12, true, \"something\") could read them out like args.int(0) args.bool(1) args.string(2) own type, use generic arguments.get(index) make assertion: args.get(0).(*myobject), args.get(1).(*anotherobjectofmine) may cause panic if getting nil (the assertion will fail), in those cases should check first. ## anything ```go const ( used diff assert being tested shouldn't be taken consideration. = \"mock.anything\" ) ``` anythingoftype anythingoftype(t string) anythingoftypeargument special value containing for. matched against returned [reflect.type.string](https://pkg.go.dev/reflect#type.string). assert. example: args.assert(t, anythingoftype(\"string\"), anythingoftype(\"int\")) assertexpectationsforobjects assertexpectationsforobjects(t testingt, testobjects ...interface{}) asserts everything specified with [mock.on](#method-mock-on) was fact called have occurred any order. functionaloptions functionaloptions(values *functionaloptionsargument [functionaloptionsargument](#type-functionaloptionsargument) expected functional-options functionaloptions(foo.opt1(\"strvalue\"), foo.opt2(613))) inorder inorder(calls ...*call) defines order made inorder( mock.on(\"init\").return(nil), mock.on(\"do\").return(nil), istype istype(t interface{}) *istypeargument istypeargument can provide zero-value check. alternative [anythingoftype](#func-anythingoftype). [arguments.diff](#method-arguments-diff) [arguments.assert](#method-arguments-assert). istype(\"\"), istype(0)) cannot match interface types because contained passed both mock.called, zero all interfaces \\<nil> type. matchedby matchedby(fn argumentmatcher based only certain properties from complex some calculation. takes function evaluated true there's false otherwise. m.on(\"do\", matchedby(func(req *http.request) req.host == \"example.com\" })) fn must accepting single (of type) bool. doesn't required signature, matchedby() panics. contains checking. deprecated: implementation detail not used. [anythingoftype](#func-anythingoftype) constructor instead, mock.anythingoftype(\"string\")) explicit declarations replaced interface{} [mock.on](#method-mock-on), anystring mock.anythingoftype(\"string\") arguments []interface{} holds array (args arguments) assert(t compares fails they do exactly match. bool(index gets at index. panics there no argument, wrong diff(objects []interface{}) (string, string describing differences between objects. number found. error(index get get(index int int(index is(objects whether specified. string(indexornil ...int) provided, string() complete representation arguments. parent *mock called. method. returnarguments times setting expectations. 0 means always value. repeatability channel block until either receives message closed. immediately. waitfor <-chan time.time handler manipulate content reference. it's useful mocking such unmarshalers decoders. runfn func(arguments) panicmsg msg set non irrespective settings *string filtered unexported represents expectations, well recording activity. - `parent: *mock`: `method: string`: `arguments: arguments`: `returnarguments: `repeatability: int`: `waitfor: time.time`: `runfn: func(arguments)`: `panicmsg: *string`: after (c *call) after(d time.duration) *call sets how long mock.on(\"mymethod\", arg1, arg2).after(time.second) maybe maybe() allows optional. calling optional while asserting expectations notbefore notbefore(calls indicates referenced been same and/or instances. mock.on(\"do\").return(nil).notbefore( mock.on(\"init\").return(nil) on(methodname chains new expectation description onto mocked interface. syntax like. mock. on(\"mymethod\", 1).return(nil). on(\"myothermethod\", 'a', 'b', 'c').return(errors.new(\"some error\")) once once() once. arg2).return(returnarg1, returnarg2).once() panic(msg specifies fail mock.on(\"dosomething\").panic(\"test panic\") return(returnarguments expectation. mock.on(\"dosomething\").return(errors.new(\"failed\")) run run(fn func(args arguments)) before returning. (such unmarshaler) pointer mock.on(\"unmarshal\", anythingoftype(\"*map[string]interface{}\")).return().run(func(args arg args.get(0).(*map[string]interface{}) arg[\"foo\"] \"bar\" }) times(i indicated times. returnarg2).times(5) twice twice() twice. returnarg2).twice() unset unset() removes handlers satisfy supported instances static input remaining following would \"mymethod(2, 2)\": 2, 2).return(0). 3, 3).return(0). anything, anything).return(0) 3).unset() waituntil waituntil(w time.time) mock's its closed received. arg2).waituntil(time.after(time.second)) functionaloptionsargument list functional options matching (f *functionaloptionsargument) expectedcalls []*call were []call workhorse track usage, refer \"example usage\" section top document. `expectedcalls: []*call`: `calls: []call`: assertcalled (m *mock) assertcalled(t methodname produce result underlying changed assertexpectations assertexpectations(t testingt) assertnotcalled assertnotcalled(t assertnumberofcalls assertnumberofcalls(t called(arguments tells has called, return. unexpected (i.e. preceded calls) call.waitfor set, blocks message. ismethodcallable ismethodcallable(t unsatisfied registered methodcalled methodcalled(methodname starts arg2) %v format note: implicitly arguments.diff passed. exists go's default formatting traverses without acquiring mutex, detected -race. test(t [testingt](#type-testingt) errors reported, otherwise panic. going goroutine than one running function. testdata testdata() objx.map data testing. testify ignores completely allowing whatever it. testingt logf(format errorf(format failnow() wrapper around \\*testing.t `logf: func(format ...interface{})`: `errorf: `failnow: func()`:",
+      "symbols": [
+        {
+          "name": "const Anything",
+          "kind": "go constant",
+          "anchor": "const-Anything"
+        },
+        {
+          "name": "func AnythingOfType(t string) AnythingOfTypeArgument",
+          "kind": "go function",
+          "anchor": "func-AnythingOfType"
+        },
+        {
+          "name": "func AssertExpectationsForObjects(t TestingT, testObjects ...interface{}) bool",
+          "kind": "go function",
+          "anchor": "func-AssertExpectationsForObjects"
+        },
+        {
+          "name": "func FunctionalOptions(values ...interface{}) *FunctionalOptionsArgument",
+          "kind": "go function",
+          "anchor": "func-FunctionalOptions"
+        },
+        {
+          "name": "func InOrder(calls ...*Call)",
+          "kind": "go function",
+          "anchor": "func-InOrder"
+        },
+        {
+          "name": "func IsType(t interface{}) *IsTypeArgument",
+          "kind": "go function",
+          "anchor": "func-IsType"
+        },
+        {
+          "name": "func MatchedBy(fn interface{}) argumentMatcher",
+          "kind": "go function",
+          "anchor": "func-MatchedBy"
+        },
+        {
+          "name": "type AnythingOfTypeArgument",
+          "kind": "go type",
+          "anchor": "type-AnythingOfTypeArgument"
+        },
+        {
+          "name": "type Arguments",
+          "kind": "go type",
+          "anchor": "type-Arguments"
+        },
+        {
+          "name": "Arguments.Assert",
+          "kind": "go method",
+          "anchor": "method-Arguments-Assert"
+        },
+        {
+          "name": "Arguments.Bool",
+          "kind": "go method",
+          "anchor": "method-Arguments-Bool"
+        },
+        {
+          "name": "Arguments.Diff",
+          "kind": "go method",
+          "anchor": "method-Arguments-Diff"
+        },
+        {
+          "name": "Arguments.Error",
+          "kind": "go method",
+          "anchor": "method-Arguments-Error"
+        },
+        {
+          "name": "Arguments.Get",
+          "kind": "go method",
+          "anchor": "method-Arguments-Get"
+        },
+        {
+          "name": "Arguments.Int",
+          "kind": "go method",
+          "anchor": "method-Arguments-Int"
+        },
+        {
+          "name": "Arguments.Is",
+          "kind": "go method",
+          "anchor": "method-Arguments-Is"
+        },
+        {
+          "name": "Arguments.String",
+          "kind": "go method",
+          "anchor": "method-Arguments-String"
+        },
+        {
+          "name": "type Call",
+          "kind": "go type",
+          "anchor": "type-Call"
+        },
+        {
+          "name": "Call.After",
+          "kind": "go method",
+          "anchor": "method-Call-After"
+        },
+        {
+          "name": "Call.Maybe",
+          "kind": "go method",
+          "anchor": "method-Call-Maybe"
+        },
+        {
+          "name": "Call.NotBefore",
+          "kind": "go method",
+          "anchor": "method-Call-NotBefore"
+        },
+        {
+          "name": "Call.On",
+          "kind": "go method",
+          "anchor": "method-Call-On"
+        },
+        {
+          "name": "Call.Once",
+          "kind": "go method",
+          "anchor": "method-Call-Once"
+        },
+        {
+          "name": "Call.Panic",
+          "kind": "go method",
+          "anchor": "method-Call-Panic"
+        },
+        {
+          "name": "Call.Return",
+          "kind": "go method",
+          "anchor": "method-Call-Return"
+        },
+        {
+          "name": "Call.Run",
+          "kind": "go method",
+          "anchor": "method-Call-Run"
+        },
+        {
+          "name": "Call.Times",
+          "kind": "go method",
+          "anchor": "method-Call-Times"
+        },
+        {
+          "name": "Call.Twice",
+          "kind": "go method",
+          "anchor": "method-Call-Twice"
+        },
+        {
+          "name": "Call.Unset",
+          "kind": "go method",
+          "anchor": "method-Call-Unset"
+        },
+        {
+          "name": "Call.WaitUntil",
+          "kind": "go method",
+          "anchor": "method-Call-WaitUntil"
+        },
+        {
+          "name": "type FunctionalOptionsArgument",
+          "kind": "go type",
+          "anchor": "type-FunctionalOptionsArgument"
+        },
+        {
+          "name": "FunctionalOptionsArgument.String",
+          "kind": "go method",
+          "anchor": "method-FunctionalOptionsArgument-String"
+        },
+        {
+          "name": "type IsTypeArgument",
+          "kind": "go type",
+          "anchor": "type-IsTypeArgument"
+        },
+        {
+          "name": "type Mock",
+          "kind": "go type",
+          "anchor": "type-Mock"
+        },
+        {
+          "name": "Mock.AssertCalled",
+          "kind": "go method",
+          "anchor": "method-Mock-AssertCalled"
+        },
+        {
+          "name": "Mock.AssertExpectations",
+          "kind": "go method",
+          "anchor": "method-Mock-AssertExpectations"
+        },
+        {
+          "name": "Mock.AssertNotCalled",
+          "kind": "go method",
+          "anchor": "method-Mock-AssertNotCalled"
+        },
+        {
+          "name": "Mock.AssertNumberOfCalls",
+          "kind": "go method",
+          "anchor": "method-Mock-AssertNumberOfCalls"
+        },
+        {
+          "name": "Mock.Called",
+          "kind": "go method",
+          "anchor": "method-Mock-Called"
+        },
+        {
+          "name": "Mock.IsMethodCallable",
+          "kind": "go method",
+          "anchor": "method-Mock-IsMethodCallable"
+        },
+        {
+          "name": "Mock.MethodCalled",
+          "kind": "go method",
+          "anchor": "method-Mock-MethodCalled"
+        },
+        {
+          "name": "Mock.On",
+          "kind": "go method",
+          "anchor": "method-Mock-On"
+        },
+        {
+          "name": "Mock.String",
+          "kind": "go method",
+          "anchor": "method-Mock-String"
+        },
+        {
+          "name": "Mock.Test",
+          "kind": "go method",
+          "anchor": "method-Mock-Test"
+        },
+        {
+          "name": "Mock.TestData",
+          "kind": "go method",
+          "anchor": "method-Mock-TestData"
+        },
+        {
+          "name": "type TestingT",
+          "kind": "go type",
+          "anchor": "type-TestingT"
+        }
+      ],
+      "documentId": "pkg-mock",
+      "locale": "en",
+      "contentLocale": "en",
+      "contentVersion": "current",
+      "versionScope": "site",
+      "alternates": [
+        {
+          "locale": "en",
+          "contentVersion": "current",
+          "url": "https://testify-docs.github.io/reference/pkg-mock.html",
+          "markdown": "https://testify-docs.github.io/reference/pkg-mock.md"
+        }
+      ]
+    },
+    {
+      "id": "reference/pkg-require.md",
+      "kind": "page",
+      "title": "require",
+      "description": "Package require implements the same assertions as the assert package but stops test execution when a test fails.",
+      "tab": "reference",
+      "url": "https://testify-docs.github.io/reference/pkg-require.html",
+      "markdown": "https://testify-docs.github.io/reference/pkg-require.md",
+      "file": "reference/pkg-require.md",
+      "searchText": "package require implements the same assertions as assert but stops test execution when a fails. ### example usage following is complete using in standard function: import ( \"testing\" \"github.com/stretchr/testify/require\" ) func testsomething(t *testing.t) { var string = \"hello\" b require.equal(t, a, b, \"the two words should be same.\") } have global functions package, instead of returning boolean result they call [testing.t.failnow](https://pkg.go.dev/testing#t.failnow). consequence this that it must called from goroutine running function, not other goroutines created during test. every assertion function also takes an optional message final argument, allowing custom error messages to appended method outputs. ## condition ```go condition(t testingt, comp assert.comparison, msgandargs ...interface{}) ``` uses comparison complex condition. conditionf conditionf(t msg string, args contains contains(t s interface{}, asserts specified list(array, slice...) or map substring element. require.contains(t, \"hello world\", \"world\") [\"hello\", \"world\"], {\"hello\": \"world\"}, \"hello\") containsf containsf(t require.containsf(t, \"world\", \"error %s\", \"formatted\") \"hello\", direxists direxists(t path checks whether directory exists given path. fails if file rather there checking exists. direxistsf direxistsf(t elementsmatch elementsmatch(t lista listb lista(array, equal listb(array, ignoring order elements. are duplicate elements, number appearances each them both lists match. require.elementsmatch(t, \\[1, 3, 2, 3], 2]) elementsmatchf elementsmatchf(t require.elementsmatchf(t, 2], empty empty(t object value \"empty\". [zero values](https://go.dev/ref/spec#the_zero_value) arrays \"empty\" element zero type (stricter than \"empty\"). slices, maps and channels with length pointer values nil pointed require.empty(t, obj) emptyf emptyf(t require.emptyf(t, obj, equal(t expected actual objects equal. 123, 123) variable equality determined based on referenced (as opposed memory addresses). cannot will always fail. equalerror equalerror(t theerror error, errstring returned non-nil (i.e. error) provided error. actualobj, err := somefunction() require.equalerror(t, err, expectederrorstring) equalerrorf equalerrorf(t require.equalerrorf(t, expectederrorstring, equalexportedvalues equalexportedvalues(t types their public fields useful for comparing structs private could potentially differ. struct exported int notexported require.equalexportedvalues(t, s{1, 2}, 3}) => true s{2, false equalexportedvaluesf equalexportedvaluesf(t require.equalexportedvaluesf(t, 3}, equalvalues equalvalues(t convertible larger require.equalvalues(t, uint32(123), int32(123)) equalvaluesf equalvaluesf(t require.equalvaluesf(t, int32(123), equalf equalf(t require.equalf(t, error(t (ie. error). require.error(t, err) erroras erroras(t target at least one errors err's chain matches target, so, sets value. wrapper errors.as. errorasf errorasf(t errorcontains errorcontains(t substring. require.errorcontains(t, expectederrorsubstring) errorcontainsf errorcontainsf(t require.errorcontainsf(t, expectederrorsubstring, erroris erroris(t target. errors.is. errorisf errorisf(t errorf errorf(t require.errorf(t, eventually eventually(t func() bool, waitfor time.duration, tick met time, periodically tick. require.eventually(t, bool return true; }, time.second, 10*time.millisecond) eventuallywitht eventuallywitht(t func(collect *assert.collectt), contrast eventually, supplies collectt so can use assertions. considered \"met\" no raised supplied collects all (if any). before waitfor, collected last copied t. externalvalue go time.sleep(8*time.second) }() require.eventuallywitht(t, func(c *assert.collectt) // add needed; any failure fail current require.true(c, externalvalue, \"expected 'externalvalue' true\") 10*time.second, 1*time.second, \"external state has changed 'true'; still false\") eventuallywithtf eventuallywithtf(t require.eventuallywithtf(t, eventuallyf eventuallyf(t require.eventuallyf(t, 10*time.millisecond, exactly exactly(t type. require.exactly(t, int64(123)) exactlyf exactlyf(t require.exactlyf(t, int64(123), fail(t failuremessage reports through failnow failnow(t failnowf failnowf(t failf failf(t false(t false. require.false(t, mybool) falsef falsef(t require.falsef(t, mybool, fileexists fileexists(t points trying check file. fileexistsf fileexistsf(t greater greater(t e1 e2 first second require.greater(t, 1) float64(2), float64(1)) \"b\", \"a\") greaterorequal greaterorequal(t require.greaterorequal(t, 2) \"b\") greaterorequalf greaterorequalf(t require.greaterorequalf(t, 1, \"a\", greaterf greaterf(t require.greaterf(t, float64(1), httpbodycontains httpbodycontains(t handler http.handlerfunc, url url.values, str returns body string. require.httpbodycontains(t, myhandler, \"get\", \"www.google.com\", nil, \"i'm feeling lucky\") httpbodycontainsf httpbodycontainsf(t require.httpbodycontainsf(t, lucky\", httpbodynotcontains httpbodynotcontains(t does contain require.httpbodynotcontains(t, httpbodynotcontainsf httpbodynotcontainsf(t require.httpbodynotcontainsf(t, httperror httperror(t status code. require.httperror(t, \"post\", \"/a/b/c\", url.values{\"a\": []string{\"b\", \"c\"}} httperrorf httperrorf(t require.httperrorf(t, httpredirect httpredirect(t redirect require.httpredirect(t, httpredirectf httpredirectf(t require.httpredirectf(t, httpstatuscode httpstatuscode(t statuscode int, require.httpstatuscode(t, \"/notimplemented\", 501) httpstatuscodef httpstatuscodef(t require.httpstatuscodef(t, 501, httpsuccess httpsuccess(t success require.httpsuccess(t, \"http://www.google.com\", nil) httpsuccessf httpsuccessf(t require.httpsuccessf(t, implements(t interfaceobject implemented by interface. require.implements(t, (*myinterface)(nil), new(myobject)) implementsf implementsf(t require.implementsf(t, new(myobject), indelta indelta(t delta float64, numerals within other. require.indelta(t, math.pi, 22/7.0, 0.01) indeltamapvalues indeltamapvalues(t indelta, compares between maps. keys. indeltamapvaluesf indeltamapvaluesf(t indeltaslice indeltaslice(t except slices. indeltaslicef indeltaslicef(t indeltaf indeltaf(t require.indeltaf(t, 0.01, inepsilon inepsilon(t epsilon relative less inepsilonslice inepsilonslice(t inepsilon, inepsilonslicef inepsilonslicef(t inepsilonf inepsilonf(t isdecreasing isdecreasing(t collection decreasing require.isdecreasing(t, []int{2, 0}) []float{2, 1}) \"a\"}) isdecreasingf isdecreasingf(t require.isdecreasingf(t, 0}, 1}, \"a\"}, isincreasing isincreasing(t increasing require.isincreasing(t, []int{1, []float{1, 2}) []string{\"a\", \"b\"}) isincreasingf isincreasingf(t require.isincreasingf(t, \"b\"}, isnondecreasing isnondecreasing(t require.isnondecreasing(t, isnondecreasingf isnondecreasingf(t require.isnondecreasingf(t, isnonincreasing isnonincreasing(t require.isnonincreasing(t, isnonincreasingf isnonincreasingf(t require.isnonincreasingf(t, isnottype isnottype(t thetype require.isnottype(t, &notmystruct{}, &mystruct{}) isnottypef isnottypef(t require.isnottypef(t, &mystruct{}, istype istype(t expectedtype require.istype(t, istypef istypef(t require.istypef(t, jsoneq jsoneq(t json strings equivalent. require.jsoneq(t, `{\"hello\": \"foo\": \"bar\"}`, `{\"foo\": \"bar\", \"hello\": \"world\"}`) jsoneqf jsoneqf(t require.jsoneqf(t, \"world\"}`, len len(t specific length. len() accept. require.len(t, myslice, 3) lenf lenf(t require.lenf(t, less(t require.less(t, float64(2)) lessorequal lessorequal(t require.lessorequal(t, lessorequalf lessorequalf(t require.lessorequalf(t, lessf lessf(t require.lessf(t, negative negative(t e require.negative(t, -1) -1.23) negativef negativef(t require.negativef(t, -1, -1.23, never never(t doesn't satisfy require.never(t, false; neverf neverf(t require.neverf(t, new new(t testingt) *assertions makes testingt. nil(t nil. require.nil(t, nilf nilf(t require.nilf(t, nodirexists nodirexists(t exist existing \\_directory\\_ only. nodirexistsf nodirexistsf(t noerror noerror(t require.noerror(t, expectedobj, actualobj) noerrorf noerrorf(t require.noerrorf(t, nofileexists nofileexists(t \\_file\\_ nofileexistsf nofileexistsf(t notcontains notcontains(t require.notcontains(t, \"earth\") notcontainsf notcontainsf(t require.notcontainsf(t, \"earth\", notelementsmatch notelementsmatch(t inverse elementsmatch. require.notelementsmatch(t, 3]) -> 4]) notelementsmatchf notelementsmatchf(t require.notelementsmatchf(t, 4], notempty notempty(t [empty](#func-empty). require.notempty(t, \"two\", obj[1]) notemptyf notemptyf(t require.notemptyf(t, notequal notequal(t require.notequal(t, obj1, obj2) notequalvalues notequalvalues(t even converted require.notequalvalues(t, notequalvaluesf notequalvaluesf(t require.notequalvaluesf(t, obj2, notequalf notequalf(t require.notequalf(t, noterroras noterroras(t none noterrorasf noterrorasf(t noterroris noterroris(t noterrorisf noterrorisf(t notimplements notimplements(t implement require.notimplements(t, notimplementsf notimplementsf(t require.notimplementsf(t, notnil notnil(t require.notnil(t, notnilf notnilf(t require.notnilf(t, notpanics notpanics(t f assert.panictestfunc, code inside panictestfunc panic. require.notpanics(t, func(){ remaincalm() }) notpanicsf notpanicsf(t require.notpanicsf(t, notregexp notregexp(t rx regexp match require.notregexp(t, regexp.mustcompile(\"starts\"), \"it's starting\") \"^start\", notregexpf notregexpf(t require.notregexpf(t, starting\", notsame notsame(t pointers do reference object. require.notsame(t, ptr1, ptr2) arguments variables. sameness notsamef notsamef(t require.notsamef(t, ptr2, notsubset notsubset(t list subset (array, slice, map) elements map). key-value pairs unless compared array slice where only key evaluated. require.notsubset(t, [1, {\"x\": \"y\": {\"z\": {1: \"one\", 2: \"two\"}) [\"z\"]) notsubsetf notsubsetf(t require.notsubsetf(t, \"two\"}, [\"z\"], notzero notzero(t i its notzerof notzerof(t panics panics(t panics. require.panics(t, gocrazy() panicswitherror panicswitherror(t panics, recovered panic satisfies comparison. require.panicswitherror(t, \"crazy error\", panicswitherrorf panicswitherrorf(t require.panicswitherrorf(t, panicswithvalue panicswithvalue(t equals require.panicswithvalue(t, panicswithvaluef panicswithvaluef(t require.panicswithvaluef(t, panicsf panicsf(t require.panicsf(t, positive positive(t require.positive(t, 1.23) positivef positivef(t require.positivef(t, 1.23, regexp(t require.regexp(t, regexp.mustcompile(\"start\"), \"start...$\", regexpf regexpf(t require.regexpf(t, same(t require.same(t, samef samef(t require.samef(t, subset(t require.subset(t, [\"x\"]) subsetf subsetf(t require.subsetf(t, [\"x\"], true(t true. require.true(t, truef truef(t require.truef(t, withinduration withinduration(t time.time, times duration require.withinduration(t, time.now(), 10*time.second) withindurationf withindurationf(t require.withindurationf(t, withinrange withinrange(t start end time range (inclusive). require.withinrange(t, time.now().add(-time.second), time.now().add(time.second)) withinrangef withinrangef(t require.withinrangef(t, time.now().add(time.second), yamleq yamleq(t documents yaml `--- key: --- document, evaluated ` subsequent require.yamleq(t, expected, actual) yamleqf yamleqf(t require.yamleqf(t, actual, zero(t zerof zerof(t filtered unexported provides methods around testingt (a *assertions) condition(comp conditionf(comp contains(s a.contains(\"hello a.contains([\"hello\", a.contains({\"hello\": containsf(s a.containsf(\"hello a.containsf([\"hello\", a.containsf({\"hello\": direxists(path direxistsf(path elementsmatch(lista a.elementsmatch(\\[1, elementsmatchf(lista a.elementsmatchf(\\[1, empty(object a.empty(obj) emptyf(object a.emptyf(obj, equal(expected a.equal(123, equalerror(theerror a.equalerror(err, equalerrorf(theerror a.equalerrorf(err, equalexportedvalues(expected a.equalexportedvalues(s{1, equalexportedvaluesf(expected a.equalexportedvaluesf(s{1, equalvalues(expected a.equalvalues(uint32(123), equalvaluesf(expected a.equalvaluesf(uint32(123), equalf(expected a.equalf(123, error(err a.error(err) erroras(err errorasf(err errorcontains(theerror a.errorcontains(err, errorcontainsf(theerror a.errorcontainsf(err, erroris(err errorisf(err errorf(err a.errorf(err, eventually(condition a.eventually(func() eventuallywitht(condition a.eventuallywitht(func(c assert.true(c, eventuallywithtf(condition a.eventuallywithtf(func(c eventuallyf(condition a.eventuallyf(func() exactly(expected a.exactly(int32(123), exactlyf(expected a.exactlyf(int32(123), fail(failuremessage failnow(failuremessage failnowf(failuremessage failf(failuremessage false(value a.false(mybool) falsef(value a.falsef(mybool, fileexists(path fileexistsf(path greater(e1 a.greater(2, a.greater(float64(2), a.greater(\"b\", greaterorequal(e1 a.greaterorequal(2, a.greaterorequal(\"b\", greaterorequalf(e1 a.greaterorequalf(2, a.greaterorequalf(\"b\", greaterf(e1 a.greaterf(2, a.greaterf(float64(2), a.greaterf(\"b\", httpbodycontains(handler a.httpbodycontains(myhandler, httpbodycontainsf(handler a.httpbodycontainsf(myhandler, httpbodynotcontains(handler a.httpbodynotcontains(myhandler, httpbodynotcontainsf(handler a.httpbodynotcontainsf(myhandler, httperror(handler a.httperror(myhandler, httperrorf(handler a.httperrorf(myhandler, httpredirect(handler a.httpredirect(myhandler, httpredirectf(handler a.httpredirectf(myhandler, httpstatuscode(handler a.httpstatuscode(myhandler, httpstatuscodef(handler a.httpstatuscodef(myhandler, httpsuccess(handler a.httpsuccess(myhandler, httpsuccessf(handler a.httpsuccessf(myhandler, implements(interfaceobject a.implements((*myinterface)(nil), implementsf(interfaceobject a.implementsf((*myinterface)(nil), indelta(expected a.indelta(math.pi, indeltamapvalues(expected indeltamapvaluesf(expected indeltaslice(expected indeltaslicef(expected indeltaf(expected a.indeltaf(math.pi, inepsilon(expected inepsilonslice(expected inepsilonslicef(expected inepsilonf(expected isdecreasing(object a.isdecreasing([]int{2, a.isdecreasing([]float{2, a.isdecreasing([]string{\"b\", isdecreasingf(object a.isdecreasingf([]int{2, a.isdecreasingf([]float{2, a.isdecreasingf([]string{\"b\", isincreasing(object a.isincreasing([]int{1, a.isincreasing([]float{1, a.isincreasing([]string{\"a\", isincreasingf(object a.isincreasingf([]int{1, a.isincreasingf([]float{1, a.isincreasingf([]string{\"a\", isnondecreasing(object a.isnondecreasing([]int{1, a.isnondecreasing([]float{1, a.isnondecreasing([]string{\"a\", isnondecreasingf(object a.isnondecreasingf([]int{1, a.isnondecreasingf([]float{1, a.isnondecreasingf([]string{\"a\", isnonincreasing(object a.isnonincreasing([]int{2, a.isnonincreasing([]float{2, a.isnonincreasing([]string{\"b\", isnonincreasingf(object a.isnonincreasingf([]int{2, a.isnonincreasingf([]float{2, a.isnonincreasingf([]string{\"b\", isnottype(thetype a.isnottype(&notmystruct{}, isnottypef(thetype a.isnottypef(&notmystruct{}, istype(expectedtype a.istype(&mystruct{}, istypef(expectedtype a.istypef(&mystruct{}, jsoneq(expected a.jsoneq(`{\"hello\": jsoneqf(expected a.jsoneqf(`{\"hello\": len(object a.len(myslice, lenf(object a.lenf(myslice, less(e1 a.less(1, a.less(float64(1), a.less(\"a\", lessorequal(e1 a.lessorequal(1, a.lessorequal(2, a.lessorequal(\"a\", a.lessorequal(\"b\", lessorequalf(e1 a.lessorequalf(1, a.lessorequalf(2, a.lessorequalf(\"a\", a.lessorequalf(\"b\", lessf(e1 a.lessf(1, a.lessf(float64(1), a.lessf(\"a\", negative(e a.negative(-1) a.negative(-1.23) negativef(e a.negativef(-1, a.negativef(-1.23, never(condition a.never(func() neverf(condition a.neverf(func() nil(object a.nil(err) nilf(object a.nilf(err, nodirexists(path nodirexistsf(path noerror(err a.noerror(err) a.equal(expectedobj, noerrorf(err a.noerrorf(err, nofileexists(path nofileexistsf(path notcontains(s a.notcontains(\"hello a.notcontains([\"hello\", a.notcontains({\"hello\": notcontainsf(s a.notcontainsf(\"hello a.notcontainsf([\"hello\", a.notcontainsf({\"hello\": notelementsmatch(lista a.notelementsmatch(\\[1, notelementsmatchf(lista a.notelementsmatchf(\\[1, notempty(object a.notempty(obj) a.equal(\"two\", notemptyf(object a.notemptyf(obj, notequal(expected a.notequal(obj1, notequalvalues(expected a.notequalvalues(obj1, notequalvaluesf(expected a.notequalvaluesf(obj1, notequalf(expected a.notequalf(obj1, noterroras(err noterrorasf(err noterroris(err noterrorisf(err notimplements(interfaceobject a.notimplements((*myinterface)(nil), notimplementsf(interfaceobject a.notimplementsf((*myinterface)(nil), notnil(object a.notnil(err) notnilf(object a.notnilf(err, notpanics(f a.notpanics(func(){ notpanicsf(f a.notpanicsf(func(){ notregexp(rx a.notregexp(regexp.mustcompile(\"starts\"), a.notregexp(\"^start\", notregexpf(rx a.notregexpf(regexp.mustcompile(\"starts\"), a.notregexpf(\"^start\", notsame(expected a.notsame(ptr1, notsamef(expected a.notsamef(ptr1, notsubset(list a.notsubset([1, a.notsubset({\"x\": notsubsetf(list a.notsubsetf([1, a.notsubsetf({\"x\": notzero(i notzerof(i panics(f a.panics(func(){ panicswitherror(errstring a.panicswitherror(\"crazy panicswitherrorf(errstring a.panicswitherrorf(\"crazy panicswithvalue(expected a.panicswithvalue(\"crazy panicswithvaluef(expected a.panicswithvaluef(\"crazy panicsf(f a.panicsf(func(){ positive(e a.positive(1) a.positive(1.23) positivef(e a.positivef(1, a.positivef(1.23, regexp(rx a.regexp(regexp.mustcompile(\"start\"), a.regexp(\"start...$\", regexpf(rx a.regexpf(regexp.mustcompile(\"start\"), a.regexpf(\"start...$\", same(expected a.same(ptr1, samef(expected a.samef(ptr1, subset(list a.subset([1, a.subset({\"x\": subsetf(list a.subsetf([1, a.subsetf({\"x\": true(value a.true(mybool) truef(value a.truef(mybool, withinduration(expected a.withinduration(time.now(), withindurationf(expected a.withindurationf(time.now(), withinrange(actual a.withinrange(time.now(), withinrangef(actual a.withinrangef(time.now(), yamleq(expected a.yamleq(expected, yamleqf(expected a.yamleqf(expected, zero(i zerof(i boolassertionfunc func(testingt, common prototype validating table driven tests. example: t &testing.t{} isokay func(x int) x >= 42 tests []struct name arg }{ {\"-1 bad\", false}, {\"42 good\", 42, true}, {\"41 41, {\"45 cool\", 45, _, tt t.run(tt.name, func(t tt.assertion(t, isokay(tt.arg)) comparisonassertionfunc values. adder func(x, y + expect {\"2+2=4\", args{2, 4, equal}, {\"2+2!=5\", 5, notequal}, {\"2+3==5\", exactly}, tt.expect, adder(tt.args.x, tt.args.y)) errorassertionfunc dumbparsenum func(input v interface{}) json.unmarshal([]byte(input), v) {\"1.2 number\", \"1.2\", noerror}, {\"1.2.3 \"1.2.3\", error}, {\"true \"true\", {\"3 \"3\", float64 dumbparsenum(tt.arg, &x)) interface errorf(format failnow() \\*testing.t - `errorf: func(format ...interface{})`: `failnow: func()`: valueassertionfunc single dumbparse string) interface{} &x) nil\", notnil}, {\"empty \"\", nil}, {\"zero \"0\", zero\", zero}, {\"false \"false\", dumbparse(tt.arg))",
+      "symbols": [
+        {
+          "name": "func Condition(t TestingT, comp assert.Comparison, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Condition"
+        },
+        {
+          "name": "func Conditionf(t TestingT, comp assert.Comparison, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Conditionf"
+        },
+        {
+          "name": "func Contains(t TestingT, s interface{}, contains interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Contains"
+        },
+        {
+          "name": "func Containsf(t TestingT, s interface{}, contains interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Containsf"
+        },
+        {
+          "name": "func DirExists(t TestingT, path string, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-DirExists"
+        },
+        {
+          "name": "func DirExistsf(t TestingT, path string, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-DirExistsf"
+        },
+        {
+          "name": "func ElementsMatch(t TestingT, listA interface{}, listB interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-ElementsMatch"
+        },
+        {
+          "name": "func ElementsMatchf(t TestingT, listA interface{}, listB interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-ElementsMatchf"
+        },
+        {
+          "name": "func Empty(t TestingT, object interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Empty"
+        },
+        {
+          "name": "func Emptyf(t TestingT, object interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Emptyf"
+        },
+        {
+          "name": "func Equal(t TestingT, expected interface{}, actual interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Equal"
+        },
+        {
+          "name": "func EqualError(t TestingT, theError error, errString string, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-EqualError"
+        },
+        {
+          "name": "func EqualErrorf(t TestingT, theError error, errString string, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-EqualErrorf"
+        },
+        {
+          "name": "func EqualExportedValues(t TestingT, expected interface{}, actual interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-EqualExportedValues"
+        },
+        {
+          "name": "func EqualExportedValuesf(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-EqualExportedValuesf"
+        },
+        {
+          "name": "func EqualValues(t TestingT, expected interface{}, actual interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-EqualValues"
+        },
+        {
+          "name": "func EqualValuesf(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-EqualValuesf"
+        },
+        {
+          "name": "func Equalf(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Equalf"
+        },
+        {
+          "name": "func Error(t TestingT, err error, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Error"
+        },
+        {
+          "name": "func ErrorAs(t TestingT, err error, target interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-ErrorAs"
+        },
+        {
+          "name": "func ErrorAsf(t TestingT, err error, target interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-ErrorAsf"
+        },
+        {
+          "name": "func ErrorContains(t TestingT, theError error, contains string, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-ErrorContains"
+        },
+        {
+          "name": "func ErrorContainsf(t TestingT, theError error, contains string, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-ErrorContainsf"
+        },
+        {
+          "name": "func ErrorIs(t TestingT, err error, target error, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-ErrorIs"
+        },
+        {
+          "name": "func ErrorIsf(t TestingT, err error, target error, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-ErrorIsf"
+        },
+        {
+          "name": "func Errorf(t TestingT, err error, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Errorf"
+        },
+        {
+          "name": "func Eventually(t TestingT, condition func() bool, waitFor time.Duration, tick time.Duration, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Eventually"
+        },
+        {
+          "name": "func EventuallyWithT(t TestingT, condition func(collect *assert.CollectT), waitFor time.Duration, tick time.Duration, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-EventuallyWithT"
+        },
+        {
+          "name": "func EventuallyWithTf(t TestingT, condition func(collect *assert.CollectT), waitFor time.Duration, tick time.Duration, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-EventuallyWithTf"
+        },
+        {
+          "name": "func Eventuallyf(t TestingT, condition func() bool, waitFor time.Duration, tick time.Duration, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Eventuallyf"
+        },
+        {
+          "name": "func Exactly(t TestingT, expected interface{}, actual interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Exactly"
+        },
+        {
+          "name": "func Exactlyf(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Exactlyf"
+        },
+        {
+          "name": "func Fail(t TestingT, failureMessage string, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Fail"
+        },
+        {
+          "name": "func FailNow(t TestingT, failureMessage string, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-FailNow"
+        },
+        {
+          "name": "func FailNowf(t TestingT, failureMessage string, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-FailNowf"
+        },
+        {
+          "name": "func Failf(t TestingT, failureMessage string, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Failf"
+        },
+        {
+          "name": "func False(t TestingT, value bool, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-False"
+        },
+        {
+          "name": "func Falsef(t TestingT, value bool, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Falsef"
+        },
+        {
+          "name": "func FileExists(t TestingT, path string, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-FileExists"
+        },
+        {
+          "name": "func FileExistsf(t TestingT, path string, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-FileExistsf"
+        },
+        {
+          "name": "func Greater(t TestingT, e1 interface{}, e2 interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Greater"
+        },
+        {
+          "name": "func GreaterOrEqual(t TestingT, e1 interface{}, e2 interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-GreaterOrEqual"
+        },
+        {
+          "name": "func GreaterOrEqualf(t TestingT, e1 interface{}, e2 interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-GreaterOrEqualf"
+        },
+        {
+          "name": "func Greaterf(t TestingT, e1 interface{}, e2 interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Greaterf"
+        },
+        {
+          "name": "func HTTPBodyContains(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, str interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-HTTPBodyContains"
+        },
+        {
+          "name": "func HTTPBodyContainsf(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, str interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-HTTPBodyContainsf"
+        },
+        {
+          "name": "func HTTPBodyNotContains(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, str interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-HTTPBodyNotContains"
+        },
+        {
+          "name": "func HTTPBodyNotContainsf(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, str interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-HTTPBodyNotContainsf"
+        },
+        {
+          "name": "func HTTPError(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-HTTPError"
+        },
+        {
+          "name": "func HTTPErrorf(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-HTTPErrorf"
+        },
+        {
+          "name": "func HTTPRedirect(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-HTTPRedirect"
+        },
+        {
+          "name": "func HTTPRedirectf(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-HTTPRedirectf"
+        },
+        {
+          "name": "func HTTPStatusCode(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, statuscode int, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-HTTPStatusCode"
+        },
+        {
+          "name": "func HTTPStatusCodef(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, statuscode int, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-HTTPStatusCodef"
+        },
+        {
+          "name": "func HTTPSuccess(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-HTTPSuccess"
+        },
+        {
+          "name": "func HTTPSuccessf(t TestingT, handler http.HandlerFunc, method string, url string, values url.Values, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-HTTPSuccessf"
+        },
+        {
+          "name": "func Implements(t TestingT, interfaceObject interface{}, object interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Implements"
+        },
+        {
+          "name": "func Implementsf(t TestingT, interfaceObject interface{}, object interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Implementsf"
+        },
+        {
+          "name": "func InDelta(t TestingT, expected interface{}, actual interface{}, delta float64, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-InDelta"
+        },
+        {
+          "name": "func InDeltaMapValues(t TestingT, expected interface{}, actual interface{}, delta float64, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-InDeltaMapValues"
+        },
+        {
+          "name": "func InDeltaMapValuesf(t TestingT, expected interface{}, actual interface{}, delta float64, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-InDeltaMapValuesf"
+        },
+        {
+          "name": "func InDeltaSlice(t TestingT, expected interface{}, actual interface{}, delta float64, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-InDeltaSlice"
+        },
+        {
+          "name": "func InDeltaSlicef(t TestingT, expected interface{}, actual interface{}, delta float64, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-InDeltaSlicef"
+        },
+        {
+          "name": "func InDeltaf(t TestingT, expected interface{}, actual interface{}, delta float64, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-InDeltaf"
+        },
+        {
+          "name": "func InEpsilon(t TestingT, expected interface{}, actual interface{}, epsilon float64, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-InEpsilon"
+        },
+        {
+          "name": "func InEpsilonSlice(t TestingT, expected interface{}, actual interface{}, epsilon float64, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-InEpsilonSlice"
+        },
+        {
+          "name": "func InEpsilonSlicef(t TestingT, expected interface{}, actual interface{}, epsilon float64, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-InEpsilonSlicef"
+        },
+        {
+          "name": "func InEpsilonf(t TestingT, expected interface{}, actual interface{}, epsilon float64, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-InEpsilonf"
+        },
+        {
+          "name": "func IsDecreasing(t TestingT, object interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-IsDecreasing"
+        },
+        {
+          "name": "func IsDecreasingf(t TestingT, object interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-IsDecreasingf"
+        },
+        {
+          "name": "func IsIncreasing(t TestingT, object interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-IsIncreasing"
+        },
+        {
+          "name": "func IsIncreasingf(t TestingT, object interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-IsIncreasingf"
+        },
+        {
+          "name": "func IsNonDecreasing(t TestingT, object interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-IsNonDecreasing"
+        },
+        {
+          "name": "func IsNonDecreasingf(t TestingT, object interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-IsNonDecreasingf"
+        },
+        {
+          "name": "func IsNonIncreasing(t TestingT, object interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-IsNonIncreasing"
+        },
+        {
+          "name": "func IsNonIncreasingf(t TestingT, object interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-IsNonIncreasingf"
+        },
+        {
+          "name": "func IsNotType(t TestingT, theType interface{}, object interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-IsNotType"
+        },
+        {
+          "name": "func IsNotTypef(t TestingT, theType interface{}, object interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-IsNotTypef"
+        },
+        {
+          "name": "func IsType(t TestingT, expectedType interface{}, object interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-IsType"
+        },
+        {
+          "name": "func IsTypef(t TestingT, expectedType interface{}, object interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-IsTypef"
+        },
+        {
+          "name": "func JSONEq(t TestingT, expected string, actual string, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-JSONEq"
+        },
+        {
+          "name": "func JSONEqf(t TestingT, expected string, actual string, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-JSONEqf"
+        },
+        {
+          "name": "func Len(t TestingT, object interface{}, length int, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Len"
+        },
+        {
+          "name": "func Lenf(t TestingT, object interface{}, length int, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Lenf"
+        },
+        {
+          "name": "func Less(t TestingT, e1 interface{}, e2 interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Less"
+        },
+        {
+          "name": "func LessOrEqual(t TestingT, e1 interface{}, e2 interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-LessOrEqual"
+        },
+        {
+          "name": "func LessOrEqualf(t TestingT, e1 interface{}, e2 interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-LessOrEqualf"
+        },
+        {
+          "name": "func Lessf(t TestingT, e1 interface{}, e2 interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Lessf"
+        },
+        {
+          "name": "func Negative(t TestingT, e interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Negative"
+        },
+        {
+          "name": "func Negativef(t TestingT, e interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Negativef"
+        },
+        {
+          "name": "func Never(t TestingT, condition func() bool, waitFor time.Duration, tick time.Duration, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Never"
+        },
+        {
+          "name": "func Neverf(t TestingT, condition func() bool, waitFor time.Duration, tick time.Duration, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Neverf"
+        },
+        {
+          "name": "func New(t TestingT) *Assertions",
+          "kind": "go function",
+          "anchor": "func-New"
+        },
+        {
+          "name": "func Nil(t TestingT, object interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Nil"
+        },
+        {
+          "name": "func Nilf(t TestingT, object interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Nilf"
+        },
+        {
+          "name": "func NoDirExists(t TestingT, path string, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NoDirExists"
+        },
+        {
+          "name": "func NoDirExistsf(t TestingT, path string, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NoDirExistsf"
+        },
+        {
+          "name": "func NoError(t TestingT, err error, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NoError"
+        },
+        {
+          "name": "func NoErrorf(t TestingT, err error, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NoErrorf"
+        },
+        {
+          "name": "func NoFileExists(t TestingT, path string, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NoFileExists"
+        },
+        {
+          "name": "func NoFileExistsf(t TestingT, path string, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NoFileExistsf"
+        },
+        {
+          "name": "func NotContains(t TestingT, s interface{}, contains interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotContains"
+        },
+        {
+          "name": "func NotContainsf(t TestingT, s interface{}, contains interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotContainsf"
+        },
+        {
+          "name": "func NotElementsMatch(t TestingT, listA interface{}, listB interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotElementsMatch"
+        },
+        {
+          "name": "func NotElementsMatchf(t TestingT, listA interface{}, listB interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotElementsMatchf"
+        },
+        {
+          "name": "func NotEmpty(t TestingT, object interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotEmpty"
+        },
+        {
+          "name": "func NotEmptyf(t TestingT, object interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotEmptyf"
+        },
+        {
+          "name": "func NotEqual(t TestingT, expected interface{}, actual interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotEqual"
+        },
+        {
+          "name": "func NotEqualValues(t TestingT, expected interface{}, actual interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotEqualValues"
+        },
+        {
+          "name": "func NotEqualValuesf(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotEqualValuesf"
+        },
+        {
+          "name": "func NotEqualf(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotEqualf"
+        },
+        {
+          "name": "func NotErrorAs(t TestingT, err error, target interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotErrorAs"
+        },
+        {
+          "name": "func NotErrorAsf(t TestingT, err error, target interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotErrorAsf"
+        },
+        {
+          "name": "func NotErrorIs(t TestingT, err error, target error, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotErrorIs"
+        },
+        {
+          "name": "func NotErrorIsf(t TestingT, err error, target error, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotErrorIsf"
+        },
+        {
+          "name": "func NotImplements(t TestingT, interfaceObject interface{}, object interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotImplements"
+        },
+        {
+          "name": "func NotImplementsf(t TestingT, interfaceObject interface{}, object interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotImplementsf"
+        },
+        {
+          "name": "func NotNil(t TestingT, object interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotNil"
+        },
+        {
+          "name": "func NotNilf(t TestingT, object interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotNilf"
+        },
+        {
+          "name": "func NotPanics(t TestingT, f assert.PanicTestFunc, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotPanics"
+        },
+        {
+          "name": "func NotPanicsf(t TestingT, f assert.PanicTestFunc, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotPanicsf"
+        },
+        {
+          "name": "func NotRegexp(t TestingT, rx interface{}, str interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotRegexp"
+        },
+        {
+          "name": "func NotRegexpf(t TestingT, rx interface{}, str interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotRegexpf"
+        },
+        {
+          "name": "func NotSame(t TestingT, expected interface{}, actual interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotSame"
+        },
+        {
+          "name": "func NotSamef(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotSamef"
+        },
+        {
+          "name": "func NotSubset(t TestingT, list interface{}, subset interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotSubset"
+        },
+        {
+          "name": "func NotSubsetf(t TestingT, list interface{}, subset interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotSubsetf"
+        },
+        {
+          "name": "func NotZero(t TestingT, i interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotZero"
+        },
+        {
+          "name": "func NotZerof(t TestingT, i interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-NotZerof"
+        },
+        {
+          "name": "func Panics(t TestingT, f assert.PanicTestFunc, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Panics"
+        },
+        {
+          "name": "func PanicsWithError(t TestingT, errString string, f assert.PanicTestFunc, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-PanicsWithError"
+        },
+        {
+          "name": "func PanicsWithErrorf(t TestingT, errString string, f assert.PanicTestFunc, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-PanicsWithErrorf"
+        },
+        {
+          "name": "func PanicsWithValue(t TestingT, expected interface{}, f assert.PanicTestFunc, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-PanicsWithValue"
+        },
+        {
+          "name": "func PanicsWithValuef(t TestingT, expected interface{}, f assert.PanicTestFunc, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-PanicsWithValuef"
+        },
+        {
+          "name": "func Panicsf(t TestingT, f assert.PanicTestFunc, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Panicsf"
+        },
+        {
+          "name": "func Positive(t TestingT, e interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Positive"
+        },
+        {
+          "name": "func Positivef(t TestingT, e interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Positivef"
+        },
+        {
+          "name": "func Regexp(t TestingT, rx interface{}, str interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Regexp"
+        },
+        {
+          "name": "func Regexpf(t TestingT, rx interface{}, str interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Regexpf"
+        },
+        {
+          "name": "func Same(t TestingT, expected interface{}, actual interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Same"
+        },
+        {
+          "name": "func Samef(t TestingT, expected interface{}, actual interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Samef"
+        },
+        {
+          "name": "func Subset(t TestingT, list interface{}, subset interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Subset"
+        },
+        {
+          "name": "func Subsetf(t TestingT, list interface{}, subset interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Subsetf"
+        },
+        {
+          "name": "func True(t TestingT, value bool, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-True"
+        },
+        {
+          "name": "func Truef(t TestingT, value bool, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Truef"
+        },
+        {
+          "name": "func WithinDuration(t TestingT, expected time.Time, actual time.Time, delta time.Duration, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-WithinDuration"
+        },
+        {
+          "name": "func WithinDurationf(t TestingT, expected time.Time, actual time.Time, delta time.Duration, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-WithinDurationf"
+        },
+        {
+          "name": "func WithinRange(t TestingT, actual time.Time, start time.Time, end time.Time, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-WithinRange"
+        },
+        {
+          "name": "func WithinRangef(t TestingT, actual time.Time, start time.Time, end time.Time, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-WithinRangef"
+        },
+        {
+          "name": "func YAMLEq(t TestingT, expected string, actual string, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-YAMLEq"
+        },
+        {
+          "name": "func YAMLEqf(t TestingT, expected string, actual string, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-YAMLEqf"
+        },
+        {
+          "name": "func Zero(t TestingT, i interface{}, msgAndArgs ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Zero"
+        },
+        {
+          "name": "func Zerof(t TestingT, i interface{}, msg string, args ...interface{})",
+          "kind": "go function",
+          "anchor": "func-Zerof"
+        },
+        {
+          "name": "type Assertions",
+          "kind": "go type",
+          "anchor": "type-Assertions"
+        },
+        {
+          "name": "Assertions.Condition",
+          "kind": "go method",
+          "anchor": "method-Assertions-Condition"
+        },
+        {
+          "name": "Assertions.Conditionf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Conditionf"
+        },
+        {
+          "name": "Assertions.Contains",
+          "kind": "go method",
+          "anchor": "method-Assertions-Contains"
+        },
+        {
+          "name": "Assertions.Containsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Containsf"
+        },
+        {
+          "name": "Assertions.DirExists",
+          "kind": "go method",
+          "anchor": "method-Assertions-DirExists"
+        },
+        {
+          "name": "Assertions.DirExistsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-DirExistsf"
+        },
+        {
+          "name": "Assertions.ElementsMatch",
+          "kind": "go method",
+          "anchor": "method-Assertions-ElementsMatch"
+        },
+        {
+          "name": "Assertions.ElementsMatchf",
+          "kind": "go method",
+          "anchor": "method-Assertions-ElementsMatchf"
+        },
+        {
+          "name": "Assertions.Empty",
+          "kind": "go method",
+          "anchor": "method-Assertions-Empty"
+        },
+        {
+          "name": "Assertions.Emptyf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Emptyf"
+        },
+        {
+          "name": "Assertions.Equal",
+          "kind": "go method",
+          "anchor": "method-Assertions-Equal"
+        },
+        {
+          "name": "Assertions.EqualError",
+          "kind": "go method",
+          "anchor": "method-Assertions-EqualError"
+        },
+        {
+          "name": "Assertions.EqualErrorf",
+          "kind": "go method",
+          "anchor": "method-Assertions-EqualErrorf"
+        },
+        {
+          "name": "Assertions.EqualExportedValues",
+          "kind": "go method",
+          "anchor": "method-Assertions-EqualExportedValues"
+        },
+        {
+          "name": "Assertions.EqualExportedValuesf",
+          "kind": "go method",
+          "anchor": "method-Assertions-EqualExportedValuesf"
+        },
+        {
+          "name": "Assertions.EqualValues",
+          "kind": "go method",
+          "anchor": "method-Assertions-EqualValues"
+        },
+        {
+          "name": "Assertions.EqualValuesf",
+          "kind": "go method",
+          "anchor": "method-Assertions-EqualValuesf"
+        },
+        {
+          "name": "Assertions.Equalf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Equalf"
+        },
+        {
+          "name": "Assertions.Error",
+          "kind": "go method",
+          "anchor": "method-Assertions-Error"
+        },
+        {
+          "name": "Assertions.ErrorAs",
+          "kind": "go method",
+          "anchor": "method-Assertions-ErrorAs"
+        },
+        {
+          "name": "Assertions.ErrorAsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-ErrorAsf"
+        },
+        {
+          "name": "Assertions.ErrorContains",
+          "kind": "go method",
+          "anchor": "method-Assertions-ErrorContains"
+        },
+        {
+          "name": "Assertions.ErrorContainsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-ErrorContainsf"
+        },
+        {
+          "name": "Assertions.ErrorIs",
+          "kind": "go method",
+          "anchor": "method-Assertions-ErrorIs"
+        },
+        {
+          "name": "Assertions.ErrorIsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-ErrorIsf"
+        },
+        {
+          "name": "Assertions.Errorf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Errorf"
+        },
+        {
+          "name": "Assertions.Eventually",
+          "kind": "go method",
+          "anchor": "method-Assertions-Eventually"
+        },
+        {
+          "name": "Assertions.EventuallyWithT",
+          "kind": "go method",
+          "anchor": "method-Assertions-EventuallyWithT"
+        },
+        {
+          "name": "Assertions.EventuallyWithTf",
+          "kind": "go method",
+          "anchor": "method-Assertions-EventuallyWithTf"
+        },
+        {
+          "name": "Assertions.Eventuallyf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Eventuallyf"
+        },
+        {
+          "name": "Assertions.Exactly",
+          "kind": "go method",
+          "anchor": "method-Assertions-Exactly"
+        },
+        {
+          "name": "Assertions.Exactlyf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Exactlyf"
+        },
+        {
+          "name": "Assertions.Fail",
+          "kind": "go method",
+          "anchor": "method-Assertions-Fail"
+        },
+        {
+          "name": "Assertions.FailNow",
+          "kind": "go method",
+          "anchor": "method-Assertions-FailNow"
+        },
+        {
+          "name": "Assertions.FailNowf",
+          "kind": "go method",
+          "anchor": "method-Assertions-FailNowf"
+        },
+        {
+          "name": "Assertions.Failf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Failf"
+        },
+        {
+          "name": "Assertions.False",
+          "kind": "go method",
+          "anchor": "method-Assertions-False"
+        },
+        {
+          "name": "Assertions.Falsef",
+          "kind": "go method",
+          "anchor": "method-Assertions-Falsef"
+        },
+        {
+          "name": "Assertions.FileExists",
+          "kind": "go method",
+          "anchor": "method-Assertions-FileExists"
+        },
+        {
+          "name": "Assertions.FileExistsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-FileExistsf"
+        },
+        {
+          "name": "Assertions.Greater",
+          "kind": "go method",
+          "anchor": "method-Assertions-Greater"
+        },
+        {
+          "name": "Assertions.GreaterOrEqual",
+          "kind": "go method",
+          "anchor": "method-Assertions-GreaterOrEqual"
+        },
+        {
+          "name": "Assertions.GreaterOrEqualf",
+          "kind": "go method",
+          "anchor": "method-Assertions-GreaterOrEqualf"
+        },
+        {
+          "name": "Assertions.Greaterf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Greaterf"
+        },
+        {
+          "name": "Assertions.HTTPBodyContains",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPBodyContains"
+        },
+        {
+          "name": "Assertions.HTTPBodyContainsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPBodyContainsf"
+        },
+        {
+          "name": "Assertions.HTTPBodyNotContains",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPBodyNotContains"
+        },
+        {
+          "name": "Assertions.HTTPBodyNotContainsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPBodyNotContainsf"
+        },
+        {
+          "name": "Assertions.HTTPError",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPError"
+        },
+        {
+          "name": "Assertions.HTTPErrorf",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPErrorf"
+        },
+        {
+          "name": "Assertions.HTTPRedirect",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPRedirect"
+        },
+        {
+          "name": "Assertions.HTTPRedirectf",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPRedirectf"
+        },
+        {
+          "name": "Assertions.HTTPStatusCode",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPStatusCode"
+        },
+        {
+          "name": "Assertions.HTTPStatusCodef",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPStatusCodef"
+        },
+        {
+          "name": "Assertions.HTTPSuccess",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPSuccess"
+        },
+        {
+          "name": "Assertions.HTTPSuccessf",
+          "kind": "go method",
+          "anchor": "method-Assertions-HTTPSuccessf"
+        },
+        {
+          "name": "Assertions.Implements",
+          "kind": "go method",
+          "anchor": "method-Assertions-Implements"
+        },
+        {
+          "name": "Assertions.Implementsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Implementsf"
+        },
+        {
+          "name": "Assertions.InDelta",
+          "kind": "go method",
+          "anchor": "method-Assertions-InDelta"
+        },
+        {
+          "name": "Assertions.InDeltaMapValues",
+          "kind": "go method",
+          "anchor": "method-Assertions-InDeltaMapValues"
+        },
+        {
+          "name": "Assertions.InDeltaMapValuesf",
+          "kind": "go method",
+          "anchor": "method-Assertions-InDeltaMapValuesf"
+        },
+        {
+          "name": "Assertions.InDeltaSlice",
+          "kind": "go method",
+          "anchor": "method-Assertions-InDeltaSlice"
+        },
+        {
+          "name": "Assertions.InDeltaSlicef",
+          "kind": "go method",
+          "anchor": "method-Assertions-InDeltaSlicef"
+        },
+        {
+          "name": "Assertions.InDeltaf",
+          "kind": "go method",
+          "anchor": "method-Assertions-InDeltaf"
+        },
+        {
+          "name": "Assertions.InEpsilon",
+          "kind": "go method",
+          "anchor": "method-Assertions-InEpsilon"
+        },
+        {
+          "name": "Assertions.InEpsilonSlice",
+          "kind": "go method",
+          "anchor": "method-Assertions-InEpsilonSlice"
+        },
+        {
+          "name": "Assertions.InEpsilonSlicef",
+          "kind": "go method",
+          "anchor": "method-Assertions-InEpsilonSlicef"
+        },
+        {
+          "name": "Assertions.InEpsilonf",
+          "kind": "go method",
+          "anchor": "method-Assertions-InEpsilonf"
+        },
+        {
+          "name": "Assertions.IsDecreasing",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsDecreasing"
+        },
+        {
+          "name": "Assertions.IsDecreasingf",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsDecreasingf"
+        },
+        {
+          "name": "Assertions.IsIncreasing",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsIncreasing"
+        },
+        {
+          "name": "Assertions.IsIncreasingf",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsIncreasingf"
+        },
+        {
+          "name": "Assertions.IsNonDecreasing",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsNonDecreasing"
+        },
+        {
+          "name": "Assertions.IsNonDecreasingf",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsNonDecreasingf"
+        },
+        {
+          "name": "Assertions.IsNonIncreasing",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsNonIncreasing"
+        },
+        {
+          "name": "Assertions.IsNonIncreasingf",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsNonIncreasingf"
+        },
+        {
+          "name": "Assertions.IsNotType",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsNotType"
+        },
+        {
+          "name": "Assertions.IsNotTypef",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsNotTypef"
+        },
+        {
+          "name": "Assertions.IsType",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsType"
+        },
+        {
+          "name": "Assertions.IsTypef",
+          "kind": "go method",
+          "anchor": "method-Assertions-IsTypef"
+        },
+        {
+          "name": "Assertions.JSONEq",
+          "kind": "go method",
+          "anchor": "method-Assertions-JSONEq"
+        },
+        {
+          "name": "Assertions.JSONEqf",
+          "kind": "go method",
+          "anchor": "method-Assertions-JSONEqf"
+        },
+        {
+          "name": "Assertions.Len",
+          "kind": "go method",
+          "anchor": "method-Assertions-Len"
+        },
+        {
+          "name": "Assertions.Lenf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Lenf"
+        },
+        {
+          "name": "Assertions.Less",
+          "kind": "go method",
+          "anchor": "method-Assertions-Less"
+        },
+        {
+          "name": "Assertions.LessOrEqual",
+          "kind": "go method",
+          "anchor": "method-Assertions-LessOrEqual"
+        },
+        {
+          "name": "Assertions.LessOrEqualf",
+          "kind": "go method",
+          "anchor": "method-Assertions-LessOrEqualf"
+        },
+        {
+          "name": "Assertions.Lessf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Lessf"
+        },
+        {
+          "name": "Assertions.Negative",
+          "kind": "go method",
+          "anchor": "method-Assertions-Negative"
+        },
+        {
+          "name": "Assertions.Negativef",
+          "kind": "go method",
+          "anchor": "method-Assertions-Negativef"
+        },
+        {
+          "name": "Assertions.Never",
+          "kind": "go method",
+          "anchor": "method-Assertions-Never"
+        },
+        {
+          "name": "Assertions.Neverf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Neverf"
+        },
+        {
+          "name": "Assertions.Nil",
+          "kind": "go method",
+          "anchor": "method-Assertions-Nil"
+        },
+        {
+          "name": "Assertions.Nilf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Nilf"
+        },
+        {
+          "name": "Assertions.NoDirExists",
+          "kind": "go method",
+          "anchor": "method-Assertions-NoDirExists"
+        },
+        {
+          "name": "Assertions.NoDirExistsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NoDirExistsf"
+        },
+        {
+          "name": "Assertions.NoError",
+          "kind": "go method",
+          "anchor": "method-Assertions-NoError"
+        },
+        {
+          "name": "Assertions.NoErrorf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NoErrorf"
+        },
+        {
+          "name": "Assertions.NoFileExists",
+          "kind": "go method",
+          "anchor": "method-Assertions-NoFileExists"
+        },
+        {
+          "name": "Assertions.NoFileExistsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NoFileExistsf"
+        },
+        {
+          "name": "Assertions.NotContains",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotContains"
+        },
+        {
+          "name": "Assertions.NotContainsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotContainsf"
+        },
+        {
+          "name": "Assertions.NotElementsMatch",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotElementsMatch"
+        },
+        {
+          "name": "Assertions.NotElementsMatchf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotElementsMatchf"
+        },
+        {
+          "name": "Assertions.NotEmpty",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotEmpty"
+        },
+        {
+          "name": "Assertions.NotEmptyf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotEmptyf"
+        },
+        {
+          "name": "Assertions.NotEqual",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotEqual"
+        },
+        {
+          "name": "Assertions.NotEqualValues",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotEqualValues"
+        },
+        {
+          "name": "Assertions.NotEqualValuesf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotEqualValuesf"
+        },
+        {
+          "name": "Assertions.NotEqualf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotEqualf"
+        },
+        {
+          "name": "Assertions.NotErrorAs",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotErrorAs"
+        },
+        {
+          "name": "Assertions.NotErrorAsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotErrorAsf"
+        },
+        {
+          "name": "Assertions.NotErrorIs",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotErrorIs"
+        },
+        {
+          "name": "Assertions.NotErrorIsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotErrorIsf"
+        },
+        {
+          "name": "Assertions.NotImplements",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotImplements"
+        },
+        {
+          "name": "Assertions.NotImplementsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotImplementsf"
+        },
+        {
+          "name": "Assertions.NotNil",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotNil"
+        },
+        {
+          "name": "Assertions.NotNilf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotNilf"
+        },
+        {
+          "name": "Assertions.NotPanics",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotPanics"
+        },
+        {
+          "name": "Assertions.NotPanicsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotPanicsf"
+        },
+        {
+          "name": "Assertions.NotRegexp",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotRegexp"
+        },
+        {
+          "name": "Assertions.NotRegexpf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotRegexpf"
+        },
+        {
+          "name": "Assertions.NotSame",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotSame"
+        },
+        {
+          "name": "Assertions.NotSamef",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotSamef"
+        },
+        {
+          "name": "Assertions.NotSubset",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotSubset"
+        },
+        {
+          "name": "Assertions.NotSubsetf",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotSubsetf"
+        },
+        {
+          "name": "Assertions.NotZero",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotZero"
+        },
+        {
+          "name": "Assertions.NotZerof",
+          "kind": "go method",
+          "anchor": "method-Assertions-NotZerof"
+        },
+        {
+          "name": "Assertions.Panics",
+          "kind": "go method",
+          "anchor": "method-Assertions-Panics"
+        },
+        {
+          "name": "Assertions.PanicsWithError",
+          "kind": "go method",
+          "anchor": "method-Assertions-PanicsWithError"
+        },
+        {
+          "name": "Assertions.PanicsWithErrorf",
+          "kind": "go method",
+          "anchor": "method-Assertions-PanicsWithErrorf"
+        },
+        {
+          "name": "Assertions.PanicsWithValue",
+          "kind": "go method",
+          "anchor": "method-Assertions-PanicsWithValue"
+        },
+        {
+          "name": "Assertions.PanicsWithValuef",
+          "kind": "go method",
+          "anchor": "method-Assertions-PanicsWithValuef"
+        },
+        {
+          "name": "Assertions.Panicsf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Panicsf"
+        },
+        {
+          "name": "Assertions.Positive",
+          "kind": "go method",
+          "anchor": "method-Assertions-Positive"
+        },
+        {
+          "name": "Assertions.Positivef",
+          "kind": "go method",
+          "anchor": "method-Assertions-Positivef"
+        },
+        {
+          "name": "Assertions.Regexp",
+          "kind": "go method",
+          "anchor": "method-Assertions-Regexp"
+        },
+        {
+          "name": "Assertions.Regexpf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Regexpf"
+        },
+        {
+          "name": "Assertions.Same",
+          "kind": "go method",
+          "anchor": "method-Assertions-Same"
+        },
+        {
+          "name": "Assertions.Samef",
+          "kind": "go method",
+          "anchor": "method-Assertions-Samef"
+        },
+        {
+          "name": "Assertions.Subset",
+          "kind": "go method",
+          "anchor": "method-Assertions-Subset"
+        },
+        {
+          "name": "Assertions.Subsetf",
+          "kind": "go method",
+          "anchor": "method-Assertions-Subsetf"
+        },
+        {
+          "name": "Assertions.True",
+          "kind": "go method",
+          "anchor": "method-Assertions-True"
+        },
+        {
+          "name": "Assertions.Truef",
+          "kind": "go method",
+          "anchor": "method-Assertions-Truef"
+        },
+        {
+          "name": "Assertions.WithinDuration",
+          "kind": "go method",
+          "anchor": "method-Assertions-WithinDuration"
+        },
+        {
+          "name": "Assertions.WithinDurationf",
+          "kind": "go method",
+          "anchor": "method-Assertions-WithinDurationf"
+        },
+        {
+          "name": "Assertions.WithinRange",
+          "kind": "go method",
+          "anchor": "method-Assertions-WithinRange"
+        },
+        {
+          "name": "Assertions.WithinRangef",
+          "kind": "go method",
+          "anchor": "method-Assertions-WithinRangef"
+        },
+        {
+          "name": "Assertions.YAMLEq",
+          "kind": "go method",
+          "anchor": "method-Assertions-YAMLEq"
+        },
+        {
+          "name": "Assertions.YAMLEqf",
+          "kind": "go method",
+          "anchor": "method-Assertions-YAMLEqf"
+        },
+        {
+          "name": "Assertions.Zero",
+          "kind": "go method",
+          "anchor": "method-Assertions-Zero"
+        },
+        {
+          "name": "Assertions.Zerof",
+          "kind": "go method",
+          "anchor": "method-Assertions-Zerof"
+        },
+        {
+          "name": "type BoolAssertionFunc",
+          "kind": "go type",
+          "anchor": "type-BoolAssertionFunc"
+        },
+        {
+          "name": "Example BoolAssertionFunc",
+          "kind": "go example",
+          "anchor": "type-BoolAssertionFunc"
+        },
+        {
+          "name": "type ComparisonAssertionFunc",
+          "kind": "go type",
+          "anchor": "type-ComparisonAssertionFunc"
+        },
+        {
+          "name": "Example ComparisonAssertionFunc",
+          "kind": "go example",
+          "anchor": "type-ComparisonAssertionFunc"
+        },
+        {
+          "name": "type ErrorAssertionFunc",
+          "kind": "go type",
+          "anchor": "type-ErrorAssertionFunc"
+        },
+        {
+          "name": "Example ErrorAssertionFunc",
+          "kind": "go example",
+          "anchor": "type-ErrorAssertionFunc"
+        },
+        {
+          "name": "type TestingT",
+          "kind": "go type",
+          "anchor": "type-TestingT"
+        },
+        {
+          "name": "type ValueAssertionFunc",
+          "kind": "go type",
+          "anchor": "type-ValueAssertionFunc"
+        },
+        {
+          "name": "Example ValueAssertionFunc",
+          "kind": "go example",
+          "anchor": "type-ValueAssertionFunc"
+        }
+      ],
+      "documentId": "pkg-require",
+      "locale": "en",
+      "contentLocale": "en",
+      "contentVersion": "current",
+      "versionScope": "site",
+      "alternates": [
+        {
+          "locale": "en",
+          "contentVersion": "current",
+          "url": "https://testify-docs.github.io/reference/pkg-require.html",
+          "markdown": "https://testify-docs.github.io/reference/pkg-require.md"
+        }
+      ]
+    },
+    {
+      "id": "reference/pkg-suite.md",
+      "kind": "page",
+      "title": "suite",
+      "description": "Package suite contains logic for creating testing suite structs and running the methods on those structs as tests.",
+      "tab": "reference",
+      "url": "https://testify-docs.github.io/reference/pkg-suite.html",
+      "markdown": "https://testify-docs.github.io/reference/pkg-suite.md",
+      "file": "reference/pkg-suite.md",
+      "searchText": "package suite contains logic for creating testing structs and running the methods on those as tests. most useful piece of this is that you can create setup/teardown your suites, which will run before/after whole or individual tests (depending interface(s) implement). does not support parallel see [issue 934](https://github.com/stretchr/testify/issues/934). a usually built by first extending built-in functionality from suite.suite in testify. alternatively, could reproduce own if wanted (you just need to implement testingsuite interface suite/interfaces.go). after that, any interfaces suite/interfaces.go add suite, start with \"test\" do match begin be testify, safely used helper methods. once you've (using suite.run testify) inside function matches identity \"go test\" already looking (i.e. func(\\*testing.t)). regular expression select test suites specified command-line argument \"-run\". \"-m\". object has assertion crude example: // basic imports import ( \"testing\" \"github.com/stretchr/testify/assert\" \"github.com/stretchr/testify/suite\" ) define absorb testify - including t() method returns current context type exampletestsuite struct { variablethatshouldstartatfive int } make sure set five before each func (suite *exampletestsuite) setuptest() suite.variablethatshouldstartatfive = 5 all are within suite. testexample() assert.equal(suite.t(), 5, suite.variablethatshouldstartatfive) suite.equal(5, order 'go test' we normal pass our testexampletestsuite(t *testing.t) suite.run(t, new(exampletestsuite)) ## ```go run(t *testing.t, testingsuite) ``` takes runs attached it. aftertest aftertest(suitename, testname string) executed right finishes receives names input `aftertest: func(suitename, string)`: beforetest beforetest(suitename, starts `beforetest: setupallsuite setupsuite() setupsuite method, run. `setupsuite: func()`: setupsubtest setupsubtest() subtest `setupsubtest: setuptestsuite setuptest `setuptest: *assert.assertions filtered unexported fields storing retrieving \\*testing.t context. `*assert.assertions: *assert.assertions`: assert *suite) assert() an normally, call: suite.noerror(err) but situations where embedded overridden (for example, might want override assert.assertions require.assertions), provided so suite.assert().noerror(err) require require() *require.assertions run(name string, func()) bool provides around golang subtests. it should called place t.run(name, func(t \\*testing.t)) code. passed-in fresh instance t. compatibility go pkg -run testsuite/testname/subtestname. sets sets(s needs parent get access sett sett(t t *testing.t retrieves suiteinformation start, end time.time teststats map[string]*testinformation stats stores execution. `start: time.time`: `end: `teststats: map[string]*testinformation`: passed (s *suiteinformation) passed() teardownallsuite teardownsuite() teardownsuite have been `teardownsuite: teardownsubtest teardownsubtest() `teardownsubtest: teardowntestsuite teardowntest() teardowntest `teardowntest: testinformation string information about execution test. `testname: string`: `passed: bool`: sett(*testing.t) sets(suite store return generated test'. `t: func() *testing.t`: `sett: func(*testing.t)`: `sets: func(suite testingsuite)`: withstats handlestats(suitename implements handlestats, when finished. contain its `handlestats: func(suitename *suiteinformation)`:",
+      "symbols": [
+        {
+          "name": "func Run(t *testing.T, suite TestingSuite)",
+          "kind": "go function",
+          "anchor": "func-Run"
+        },
+        {
+          "name": "type AfterTest",
+          "kind": "go type",
+          "anchor": "type-AfterTest"
+        },
+        {
+          "name": "type BeforeTest",
+          "kind": "go type",
+          "anchor": "type-BeforeTest"
+        },
+        {
+          "name": "type SetupAllSuite",
+          "kind": "go type",
+          "anchor": "type-SetupAllSuite"
+        },
+        {
+          "name": "type SetupSubTest",
+          "kind": "go type",
+          "anchor": "type-SetupSubTest"
+        },
+        {
+          "name": "type SetupTestSuite",
+          "kind": "go type",
+          "anchor": "type-SetupTestSuite"
+        },
+        {
+          "name": "type Suite",
+          "kind": "go type",
+          "anchor": "type-Suite"
+        },
+        {
+          "name": "Suite.Assert",
+          "kind": "go method",
+          "anchor": "method-Suite-Assert"
+        },
+        {
+          "name": "Suite.Require",
+          "kind": "go method",
+          "anchor": "method-Suite-Require"
+        },
+        {
+          "name": "Suite.Run",
+          "kind": "go method",
+          "anchor": "method-Suite-Run"
+        },
+        {
+          "name": "Suite.SetS",
+          "kind": "go method",
+          "anchor": "method-Suite-SetS"
+        },
+        {
+          "name": "Suite.SetT",
+          "kind": "go method",
+          "anchor": "method-Suite-SetT"
+        },
+        {
+          "name": "Suite.T",
+          "kind": "go method",
+          "anchor": "method-Suite-T"
+        },
+        {
+          "name": "type SuiteInformation",
+          "kind": "go type",
+          "anchor": "type-SuiteInformation"
+        },
+        {
+          "name": "SuiteInformation.Passed",
+          "kind": "go method",
+          "anchor": "method-SuiteInformation-Passed"
+        },
+        {
+          "name": "type TearDownAllSuite",
+          "kind": "go type",
+          "anchor": "type-TearDownAllSuite"
+        },
+        {
+          "name": "type TearDownSubTest",
+          "kind": "go type",
+          "anchor": "type-TearDownSubTest"
+        },
+        {
+          "name": "type TearDownTestSuite",
+          "kind": "go type",
+          "anchor": "type-TearDownTestSuite"
+        },
+        {
+          "name": "type TestInformation",
+          "kind": "go type",
+          "anchor": "type-TestInformation"
+        },
+        {
+          "name": "type TestingSuite",
+          "kind": "go type",
+          "anchor": "type-TestingSuite"
+        },
+        {
+          "name": "type WithStats",
+          "kind": "go type",
+          "anchor": "type-WithStats"
+        }
+      ],
+      "documentId": "pkg-suite",
+      "locale": "en",
+      "contentLocale": "en",
+      "contentVersion": "current",
+      "versionScope": "site",
+      "alternates": [
+        {
+          "locale": "en",
+          "contentVersion": "current",
+          "url": "https://testify-docs.github.io/reference/pkg-suite.html",
+          "markdown": "https://testify-docs.github.io/reference/pkg-suite.md"
+        }
+      ]
+    },
+    {
+      "id": "reference.md",
+      "kind": "page",
+      "title": "API Reference",
+      "description": "Go API for github.com/stretchr/testify across 6 packages.",
+      "tab": "reference",
+      "url": "https://testify-docs.github.io/reference.html",
+      "markdown": "https://testify-docs.github.io/reference.md",
+      "file": "reference.md",
+      "searchText": "- [github.com/stretchr/testify](/reference/package-root.html): module testify is a set of packages that provide many tools for testifying your code will behave as you intend. [github.com/stretchr/testify/assert](/reference/pkg-assert.html): package assert provides comprehensive testing use with the normal go system. [github.com/stretchr/testify/http](/reference/pkg-http.html): deprecated: net/http/httptest instead. [github.com/stretchr/testify/mock](/reference/pkg-mock.html): mock system by which it possible to objects and verify calls are happening expected. [github.com/stretchr/testify/require](/reference/pkg-require.html): require implements same assertions but stops test execution when fails. [github.com/stretchr/testify/suite](/reference/pkg-suite.html): suite contains logic creating structs running methods on those tests.",
+      "documentId": "index",
+      "locale": "en",
+      "contentLocale": "en",
+      "contentVersion": "current",
+      "versionScope": "site",
+      "alternates": [
+        {
+          "locale": "en",
+          "contentVersion": "current",
+          "url": "https://testify-docs.github.io/reference.html",
+          "markdown": "https://testify-docs.github.io/reference.md"
+        }
+      ]
+    }
+  ]
+}
